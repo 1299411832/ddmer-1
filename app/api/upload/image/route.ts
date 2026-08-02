@@ -3,6 +3,14 @@ import { prisma } from "@/app/lib/prisma";
 import { getCurrentUser } from "@/app/lib/auth";
 import { uploadFile, deleteFile, cleanUrlPath, generateFileName } from "@/app/lib/r2";
 
+function ensureR2PublicUrl(): void {
+  if (!process.env.R2_PUBLIC_URL) {
+    throw new Error(
+      "R2_PUBLIC_URL 未配置。请为 Cloudflare R2 存储桶设置自定义域（Public URL），否则上传的图片无法在前台公开访问。"
+    );
+  }
+}
+
 const ALLOWED_TYPES = [
   "image/jpeg",
   "image/png",
@@ -44,6 +52,9 @@ export async function POST(request: Request) {
     const key = `uploads/${filename}`;
 
     const buffer = await file.arrayBuffer();
+
+    // 上传前必须配置 R2 公开访问域名，否则图片无法在前台显示
+    ensureR2PublicUrl();
 
     // 简易方向检测（Cloudflare 不支持 sharp 原生模块）
     let orientation = "landscape";
