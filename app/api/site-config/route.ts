@@ -3,6 +3,9 @@ import { prisma } from "@/app/lib/prisma";
 import { getCurrentUser } from "@/app/lib/auth";
 import { clearSiteConfigCache } from "@/app/lib/site-config-db";
 
+// 强制动态渲染，不缓存任何内容
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const configs = await prisma.siteConfig.findMany();
   const result: Record<string, string> = {};

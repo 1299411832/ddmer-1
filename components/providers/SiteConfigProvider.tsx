@@ -26,13 +26,26 @@ export function SiteConfigProvider({
 
   const fetchConfig = useCallback(async () => {
     try {
-      const res = await fetch("/api/site-config", { cache: "no-store" });
-      const data = await res.json();
-      if (typeof data === "object" && data !== null) {
-        setConfig(data);
+      // 添加时间戳防止 CDN 或代理的 URL 级别缓存
+      const res = await fetch(`/api/site-config?_t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) {
+        console.warn("[SiteConfig] API 返回非 200 状态:", res.status);
+        return;
       }
-    } catch {
-      // 如果 API 拉取失败，保留当前配置
+      const data = await res.json();
+      if (typeof data === "object" && data !== null && !Array.isArray(data)) {
+        // 检查是否真的返回了配置数据（至少有一个键）
+        const keys = Object.keys(data);
+        if (keys.length > 0) {
+          setConfig(data);
+        } else {
+          console.warn("[SiteConfig] API 返回空对象，保留当前配置");
+        }
+      } else {
+        console.warn("[SiteConfig] API 返回格式异常:", typeof data);
+      }
+    } catch (err) {
+      console.warn("[SiteConfig] 拉取配置失败:", err);
     }
   }, []);
 
