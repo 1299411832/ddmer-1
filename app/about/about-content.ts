@@ -1,5 +1,5 @@
 const aboutRaw = `---
-cover: "/images/2.webp"
+cover: "/images/x.jpg"
 ---
 
 ## 关于本站
