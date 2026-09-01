@@ -56,11 +56,11 @@ export default function ProjectsPage() {
         <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4 justify-center md:justify-start">
           <FolderGit2 className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
           <h1 className="text-xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            项目
+            星球项目
           </h1>
         </div>
         <p className="text-slate-600 dark:text-slate-300 font-medium text-xs md:text-sm">
-          从零到一，用代码构建的每一份作品
+          开启您的迷体之旅，探索无限可能
         </p>
       </div>
 
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
         <div className="relative w-full max-w-lg">
           <input
             type="text"
-            placeholder="搜索项目名称、描述或技术栈..."
+            placeholder="搜索名称、描述或星球..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full px-4 py-2 md:px-6 md:py-3 pl-10 md:pl-12 text-slate-900 dark:text-white font-medium shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all placeholder-slate-500 dark:placeholder-slate-400 text-xs md:text-sm"
@@ -102,7 +102,7 @@ export default function ProjectsPage() {
         </div>
       ) : projects.length === 0 ? (
         <div className="text-center py-20 text-slate-400 text-sm">
-          暂无项目数据
+          暂无迷体项目数据
         </div>
       ) : (
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
@@ -178,7 +178,7 @@ export default function ProjectsPage() {
               animate={{ opacity: 1 }}
               className="col-span-full text-center py-12 md:py-20 text-slate-600 dark:text-slate-300 font-medium text-xs md:text-sm"
             >
-              没有找到匹配 [{searchQuery}] 的项目...
+              没有找到匹配 [{searchQuery}] 的迷体项目...
             </motion.div>
           )}
         </motion.div>
