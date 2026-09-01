@@ -316,11 +316,11 @@ export default function MessagesPage() {
         <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
           <Newspaper className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
           <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-            留言
+            星际树洞
           </h1>
         </div>
         <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">
-          登录或输入昵称，留下你的足迹
+          你一言我一语，留下你的树洞和小心思吧
         </p>
       </motion.div>
 
@@ -393,13 +393,13 @@ export default function MessagesPage() {
                     登录 GitHub
                   </div>
                   <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400">
-                    登录后即可留言和回复
+                    登录星球后即可留言和回复
                   </div>
                 </div>
               </button>
               <div className="flex gap-2">
                 <input type="text" value={nicknameInput} onChange={(e) => setNicknameInput(e.target.value)}
-                  placeholder="输入昵称直接留言" maxLength={20}
+                  placeholder="输入迷体昵称直接留言" maxLength={20}
                   onKeyDown={(e) => { if (e.key === "Enter") handleAnonymousLogin(); }}
                   className="flex-1 px-3 py-2 rounded-xl bg-white/60 dark:bg-slate-700/60 border border-slate-200/50 dark:border-slate-600/50 text-xs md:text-sm text-slate-700 dark:text-slate-200 outline-none focus:border-sky-400 transition-colors" />
                 <button type="button" onClick={handleAnonymousLogin} disabled={anonymousLoading}
@@ -461,9 +461,9 @@ export default function MessagesPage() {
               placeholder={
                 user || anonymousUser
                   ? replyTo
-                    ? "写下你的回复..."
-                    : "说点什么吧..."
-                  : "登录后即可留言..."
+                    ? "写下你的迷体..."
+                    : "说点别人不知道的吧..."
+                  : "登录星球后即可留言..."
               }
               disabled={!user && !anonymousUser}
               rows={3}
@@ -500,7 +500,7 @@ export default function MessagesPage() {
           className="text-center py-12 md:py-20 text-slate-400"
         >
           <Newspaper className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-3 md:mb-4 opacity-40" />
-          <p className="text-sm md:text-base">还没有留言，来抢沙发吧~</p>
+          <p className="text-sm md:text-base">还没有迷体声音，来吐个槽吧~</p>
         </motion.div>
       )}
 
@@ -633,7 +633,7 @@ function MessageCard({
                 <ChevronDown className="w-3 h-3 md:w-3.5 md:h-3.5" />
               )}
               <span>
-                {replyCount} 条回复
+                {replyCount} 条迷体回复
               </span>
             </button>
           )}
@@ -743,7 +743,7 @@ function ReplyCard({
               className="flex items-center gap-0.5 md:gap-1 text-[10px] md:text-xs text-slate-400 hover:text-sky-500 transition-colors"
             >
               <Reply className="w-3 h-3 md:w-3.5 md:h-3.5" />
-              <span>回复</span>
+              <span>回复迷体</span>
             </button>
           </div>
         </div>
