@@ -34,11 +34,11 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
           <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-            背景图片
+            迷体背景
           </label>
           <button
             type="button"
-            title="查看全部背景"
+            title="查看全部迷图背景"
             onClick={() => setShowGrid(!showGrid)}
             className="w-5 h-5 rounded flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
           >
@@ -129,7 +129,7 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
       {/* 模糊度调节 */}
       <div className="mb-4">
         <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2 block">
-          背景模糊度
+          星球背景模糊度
         </label>
         <div className="flex items-center gap-3">
           <input
@@ -172,7 +172,7 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
             onClick={toggleMouseTrail}
             className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-colors"
           >
-            <span className="text-xs text-slate-700 dark:text-slate-300">鼠标轨迹</span>
+            <span className="text-xs text-slate-700 dark:text-slate-300">星球轨迹</span>
             <div className={`w-9 h-5 rounded-full transition-colors ${mouseTrail ? "bg-sky-500" : "bg-slate-300 dark:bg-slate-600"}`}>
               <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform mt-0.5 ${mouseTrail ? "translate-x-4.5" : "translate-x-0.5"}`} />
             </div>
@@ -182,7 +182,7 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
             onClick={toggleSeasonalEffect}
             className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-colors"
           >
-            <span className="text-xs text-slate-700 dark:text-slate-300">季节特效</span>
+            <span className="text-xs text-slate-700 dark:text-slate-300">一叶特效</span>
             <div className={`w-9 h-5 rounded-full transition-colors ${seasonalEffect ? "bg-sky-500" : "bg-slate-300 dark:bg-slate-600"}`}>
               <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform mt-0.5 ${seasonalEffect ? "translate-x-4.5" : "translate-x-0.5"}`} />
             </div>
@@ -192,7 +192,7 @@ export default function SettingsPanel({ onClose }: { onClose: () => void }) {
             onClick={toggleSparkleEffect}
             className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-white/40 dark:bg-slate-800/40 hover:bg-white/60 dark:hover:bg-slate-800/60 transition-colors"
           >
-            <span className="text-xs text-slate-700 dark:text-slate-300">星星迸发</span>
+            <span className="text-xs text-slate-700 dark:text-slate-300">迷星迸发</span>
             <div className={`w-9 h-5 rounded-full transition-colors ${sparkleEffect ? "bg-sky-500" : "bg-slate-300 dark:bg-slate-600"}`}>
               <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform mt-0.5 ${sparkleEffect ? "translate-x-4.5" : "translate-x-0.5"}`} />
             </div>
