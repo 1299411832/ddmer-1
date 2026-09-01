@@ -227,7 +227,7 @@ export default function ReadingPage() {
       style={{ maxWidth: settings.contentWidth === "narrow" ? "42rem" : settings.contentWidth === "wide" ? "72rem" : settings.contentWidth === "full" ? "100%" : "56rem" }}
     >
       <button type="button" onClick={() => router.push(`/novel/${params.bookUrl}?source=${encodeURIComponent(bookSourceUrl)}`)} className="flex items-center gap-2 text-slate-500 hover:text-sky-500 mb-4">
-        <ArrowLeft className="w-4 h-4" /> 目录
+        <ArrowLeft className="w-4 h-4" /> 迷体目录
       </button>
 
       {loading && <LoadingTips />}
@@ -271,7 +271,7 @@ export default function ReadingPage() {
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
                 className="absolute right-0 top-14 z-40 w-72 p-3 rounded-xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 shadow-xl max-h-[70vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">本章笔记</span>
+                  <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">本章迷体笔记</span>
                   <button onClick={() => setShowNotes(false)} className="text-slate-400 hover:text-slate-600"><X className="w-4 h-4" /></button>
                 </div>
                 {notes.length === 0 ? (
