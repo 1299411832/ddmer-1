@@ -47,7 +47,7 @@ export default function CloudPlayer() {
   if (isLoading) {
     return (
       <div className="h-full w-full rounded-3xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl p-6 flex items-center justify-center min-h-[200px] md:min-h-[280px]">
-        <div className="text-sm text-slate-400 animate-pulse">加载音乐中...</div>
+        <div className="text-sm text-slate-400 animate-pulse">加载迷体音乐中...</div>
       </div>
     );
   }
@@ -65,7 +65,7 @@ export default function CloudPlayer() {
           className="text-sm text-slate-700 dark:text-slate-200 font-semibold text-center leading-relaxed tracking-wide"
           style={{ fontFamily: "Georgia, 'Noto Serif SC', serif" }}
         >
-          {saying || "点击前往音乐页面"}
+          {saying || "点击前往迷体音乐页面"}
         </p>
         <button
           type="button"
