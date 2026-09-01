@@ -104,14 +104,14 @@ export default function FriendsPage() {
         avatar: form.avatar.trim() || undefined,
         description: form.description.trim() || undefined,
       });
-      setFormMsg({ type: "success", text: "友链申请已提交，审核通过后将在前台展示" });
+      setFormMsg({ type: "success", text: "迷体申请已提交，审核通过后将在前台展示" });
       setForm({ name: "", url: "", avatar: "", description: "" });
       setTimeout(() => {
         setShowForm(false);
         setFormMsg(null);
       }, 1500);
     } catch (e: any) {
-      setFormMsg({ type: "error", text: e?.message || "提交失败，请稍后重试" });
+      setFormMsg({ type: "error", text: e?.message || "提交迷体失败，请稍后重试" });
     } finally {
       setSubmitting(false);
     }
@@ -127,7 +127,7 @@ export default function FriendsPage() {
             <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">友链</h1>
           </div>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-            {loading ? "漂流瓶 · 每一封信笺都来自远方的朋友" : friends.length ? `漂流瓶 · 来自远方的 ${friends.length} 个朋友` : "漂流瓶 · 暂无友链"}
+            {loading ? "漂流瓶 · 每一封信笺都来自远方的朋友" : friends.length ? `漂流瓶 · 来自远方的 ${friends.length} 个朋友` : "漂流瓶 · 暂无迷体链条"}
           </p>
         </div>
         <button
@@ -135,7 +135,7 @@ export default function FriendsPage() {
           className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-sky-500 text-white text-xs md:text-sm font-medium hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20"
         >
           <Plus className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          申请友链
+          申请迷体链
         </button>
       </div>
 
@@ -180,13 +180,13 @@ export default function FriendsPage() {
         ) : (
           <div className="flex flex-col items-center justify-center h-full text-slate-400">
             <Users className="w-8 h-8 md:w-12 md:h-12 mb-3 md:mb-4 opacity-40" />
-            <p className="text-sm md:text-base">暂无友链</p>
+            <p className="text-sm md:text-base">暂无迷体链条</p>
           </div>
         )}
       </div>
 
       <p className="text-center text-[10px] md:text-xs text-slate-400 mt-4 md:mt-6">
-        点击漂流瓶查看朋友详情 · 欢迎交换友链
+        点击漂流瓶查看星球详情 · 欢迎交换链条
       </p>
 
       {/* 详情弹窗 */}
@@ -238,7 +238,7 @@ export default function FriendsPage() {
                 {active.name}
               </h2>
               <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 md:mb-6">
-                {active.description || "这个朋友很懒，没有留下描述~"}
+                {active.description || "这个星球很懒，没有留下文明~"}
               </p>
               <a
                 href={active.url}
@@ -247,7 +247,7 @@ export default function FriendsPage() {
                 className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-2.5 rounded-full bg-sky-500 text-white text-xs md:text-sm font-medium hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20"
               >
                 <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                访问主页
+                访问星球主页
               </a>
             </motion.div>
           </motion.div>
@@ -290,7 +290,7 @@ export default function FriendsPage() {
               <h2 className="relative z-10 text-base md:text-lg font-bold text-slate-800 dark:text-white mb-4 md:mb-6 text-center">
                 <span className="inline-flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-                  申请友链
+                  申请迷体链条
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
                 </span>
               </h2>
@@ -298,19 +298,19 @@ export default function FriendsPage() {
               <form onSubmit={handleSubmit} className="relative z-10 space-y-3 md:space-y-4">
                 <div>
                   <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5 ml-1">
-                    站点名称 <span className="text-red-400">*</span>
+                    星球名称 <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="你的站点名称"
+                    placeholder="你的星球站点名称"
                     className="w-full px-4 py-2.5 rounded-xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:border-sky-400/30 transition-all shadow-sm"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5 ml-1">
-                    站点链接 <span className="text-red-400">*</span>
+                    星球链接 <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="url"
@@ -334,13 +334,13 @@ export default function FriendsPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5 ml-1">
-                    简介
+                    星球简介
                   </label>
                   <input
                     type="text"
                     value={form.description}
                     onChange={(e) => setForm({ ...form, description: e.target.value })}
-                    placeholder="简单介绍一下你的站点 (可选)"
+                    placeholder="简单介绍一下你的星球站点 (可选)"
                     className="w-full px-4 py-2.5 rounded-xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:border-sky-400/30 transition-all shadow-sm"
                   />
                 </div>
@@ -369,7 +369,7 @@ export default function FriendsPage() {
                 </button>
 
                 <p className="text-[10px] md:text-xs text-slate-400 dark:text-slate-500 text-center">
-                  提交后将由博主审核，审核通过后你的站点会出现在友链区域
+                  提交后将由迷体星球审核，审核通过后你的星球站点会出现在链条区域
                 </p>
               </form>
             </motion.div>
