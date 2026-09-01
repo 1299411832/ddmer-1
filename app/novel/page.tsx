@@ -60,7 +60,7 @@ export default function LibraryPage() {
       params.set("page_size", "100");
 
       const res = await fetch(`/api/books?${params}`);
-      if (!res.ok) throw new Error("请求失败");
+      if (!res.ok) throw new Error("请求迷体失败");
       const data = await res.json();
 
       setCategories(data.categories || []);
@@ -80,7 +80,7 @@ export default function LibraryPage() {
         }
       }
     } catch {
-      setError("网络错误");
+      setError("迷体错误");
     } finally {
       setLoading(false);
     }
@@ -132,7 +132,7 @@ export default function LibraryPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="搜索小说..."
+                placeholder="搜索迷体书屋..."
                 className="w-full px-5 py-3 pr-14 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/60 dark:border-slate-700/60 text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-sky-400 dark:focus:border-sky-500 transition-colors shadow-sm"
               />
               <button
@@ -175,7 +175,7 @@ export default function LibraryPage() {
                     : "bg-white/40 dark:bg-slate-700/40 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600"
                 }`}
               >
-                全部
+                书屋星球
               </button>
               {categories.map((cat) => (
                 <button
@@ -235,7 +235,7 @@ export default function LibraryPage() {
                         </p>
                       )}
                       <p className="text-xs text-sky-500 dark:text-sky-400">
-                        共 {book.chapter_count || "?"} 章
+                        共 {book.chapter_count || "?"} 章迷体
                       </p>
                     </div>
                   </div>
@@ -247,7 +247,7 @@ export default function LibraryPage() {
           {displayedBooks.length === 0 && (
             <div className="text-center py-20 text-slate-400">
               <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <p>书架空空如也</p>
+              <p>迷体书屋脑袋空空~</p>
               <p className="text-sm mt-2">
                 去后台「图书馆管理」上传你的第一本书吧
               </p>
