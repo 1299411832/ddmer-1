@@ -33,7 +33,7 @@ const navLinks = [
   { href: "/", label: "星球", icon: Home },
   { href: "/bookmark", label: "航站", icon: Bookmark },
   { href: "https://blog.tsh520.cn/music", label: "迷音乐", icon: Music },
-  { href: "/about", label: "折扣", icon: User },
+  { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: User },
   { href: "/friends", label: "迷·链", icon: Users },
   { href: "/posts", label: "星文", icon: BookOpen },
   { href: "/moments", label: "迷·语", icon: MessageSquare },
