@@ -67,7 +67,7 @@ const allApps: AppDef[] = [
   // ── 热门资讯 ──
   {
     id: "search",
-    name: "智能搜索",
+    name: "智能星球搜索",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <circle cx="11" cy="11" r="7" stroke="#3b82f6" strokeWidth="1.5" />
@@ -79,7 +79,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "hotboard",
-    name: "全网热榜",
+    name: "迷体热榜",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#f59e0b" strokeWidth="1.5" strokeLinejoin="round" />
@@ -102,7 +102,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "games",
-    name: "小游戏",
+    name: "星球游戏",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="6" width="18" height="12" rx="3" stroke="#6366f1" strokeWidth="1.5" />
@@ -116,7 +116,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "weather",
-    name: "天气",
+    name: "迷体天气",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="8" r="4" stroke="#0ea5e9" strokeWidth="1.5" />
@@ -139,7 +139,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "movieboxoffice",
-    name: "实时票房",
+    name: "迷体票房榜单",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="2" y="4" width="20" height="16" rx="2" stroke="#f59e0b" strokeWidth="1.5" />
@@ -183,7 +183,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "history",
-    name: "历史今天",
+    name: "星球历史今天",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="9" stroke="#6366f1" strokeWidth="1.5" />
@@ -236,7 +236,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "jiakao",
-    name: "驾考题库",
+    name: "迷体驾考题库",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="5" width="18" height="14" rx="2" stroke="#6366f1" strokeWidth="1.5" />
@@ -251,7 +251,7 @@ const allApps: AppDef[] = [
   // ── 图片壁纸 ──
   {
     id: "randomimage",
-    name: "随机图片",
+    name: "迷图·随机图片",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="3" width="18" height="18" rx="3" stroke="#10b981" strokeWidth="1.5" />
@@ -276,7 +276,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "random4k",
-    name: "4K图片",
+    name: "4K迷图",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="3" width="18" height="18" rx="3" stroke="#0ea5e9" strokeWidth="1.5" />
@@ -287,7 +287,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "fortune",
-    name: "抽签",
+    name: "社交抽签",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <path d="M9 3L7 21M17 3l-2 18M5 7h14M4 12h16M5 17h14" stroke="#eab308" strokeWidth="1.5" strokeLinecap="round" />
@@ -340,7 +340,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "coin",
-    name: "硬币",
+    name: "迷体硬币",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="9" stroke="#f59e0b" strokeWidth="1.5" />
@@ -366,7 +366,7 @@ const allApps: AppDef[] = [
   // ── 实用工具 ──
   {
     id: "qrcode",
-    name: "二维码",
+    name: "迷图二维码",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="3" width="7" height="7" rx="1" stroke="#8b5cf6" strokeWidth="1.5" />
@@ -449,7 +449,7 @@ const allApps: AppDef[] = [
   },
   {
     id: "calendar",
-    name: "日历",
+    name: "迷体日历",
     icon: (
       <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
         <rect x="3" y="4" width="18" height="18" rx="2" stroke="#6366f1" strokeWidth="1.5" />
