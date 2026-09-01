@@ -81,9 +81,9 @@ const Icons = {
 };
 
 const modeConfig: Record<string, { icon: React.ReactNode; label: string }> = {
-  loop: { icon: Icons.loop, label: "列表循环" },
+  loop: { icon: Icons.loop, label: "迷体列表循环" },
   single: { icon: Icons.single, label: "单曲循环" },
-  random: { icon: Icons.random, label: "随机播放" },
+  random: { icon: Icons.random, label: "随机迷体播放" },
 };
 
 // Reusable glass card with homepage-style hover
@@ -138,7 +138,7 @@ export default function MusicPage() {
       <div className="max-w-4xl mx-auto px-4 py-6 md:py-12">
         <MusicCard>
           <div className="flex items-center justify-center h-40 md:h-64">
-            <div className="text-sm md:text-base text-slate-600 dark:text-slate-300 animate-pulse font-medium">连接音乐云端中...</div>
+            <div className="text-sm md:text-base text-slate-600 dark:text-slate-300 animate-pulse font-medium">迷体正在铲开堵塞的屎粑粑中...</div>
           </div>
         </MusicCard>
       </div>
@@ -150,7 +150,7 @@ export default function MusicPage() {
       <div className="max-w-4xl mx-auto px-4 py-6 md:py-12">
         <MusicCard>
           <div className="flex items-center justify-center h-40 md:h-64">
-            <div className="text-sm md:text-base text-slate-600 dark:text-slate-300 font-medium">暂无音乐，请在 siteConfig 中配置 cloudMusicIds</div>
+            <div className="text-sm md:text-base text-slate-600 dark:text-slate-300 font-medium">暂无迷体音乐，请在 siteConfig 中配置 cloudMusicIds</div>
           </div>
         </MusicCard>
       </div>
@@ -276,7 +276,7 @@ export default function MusicPage() {
                 ? "bg-white/60 dark:bg-slate-700/70 text-indigo-600 dark:text-indigo-400 shadow-sm"
                 : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             }`}>
-            {Icons.lyrics} 歌词
+            {Icons.lyrics} 星球歌词
           </button>
           <button type="button" onClick={() => setTab("playlist")}
             className={`flex-1 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-1 md:gap-1.5 ${
@@ -284,7 +284,7 @@ export default function MusicPage() {
                 ? "bg-white/60 dark:bg-slate-700/70 text-indigo-600 dark:text-indigo-400 shadow-sm"
                 : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             }`}>
-            {Icons.playlist} 播放列表
+            {Icons.playlist} 迷体PLAYER播放列表
             {playlist.length > 0 && (
               <span className="ml-1 px-1.5 py-0.5 text-[10px] rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 font-bold tabular-nums">
                 {playlist.length}
@@ -337,7 +337,7 @@ export default function MusicPage() {
                 ) : (
                   <div className="flex flex-col items-center justify-center h-full gap-2 text-slate-400">
                     {Icons.lyrics}
-                    <span className="text-xs md:text-sm font-medium">暂无歌词</span>
+                    <span className="text-xs md:text-sm font-medium">暂无星球歌词</span>
                   </div>
                 )}
               </div>
