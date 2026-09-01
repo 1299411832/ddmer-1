@@ -812,7 +812,7 @@ export default function BookDetailPage() {
                 e.stopPropagation();
                 setShowSettings((v) => !v);
               }}
-              title="阅读设置"
+              title="迷体阅读设置"
               className={`p-2 rounded-lg border border-slate-200/50 dark:border-slate-700/50 transition-colors ${
                 showSettings
                   ? "bg-sky-500 text-white"
@@ -833,7 +833,7 @@ export default function BookDetailPage() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200/50 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-700/30">
                 <div className="flex items-center gap-2">
                   <Highlighter className="w-4 h-4 text-sky-500" />
-                  <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">笔记</span>
+                  <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">迷体笔记</span>
                   <span className="text-xs text-slate-400">{notes.length} 条</span>
                 </div>
                 <button type="button" onClick={() => setShowNotes(false)} className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
@@ -844,7 +844,7 @@ export default function BookDetailPage() {
                 {notes.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-10 text-slate-400">
                     <Highlighter className="w-8 h-8 mb-2 opacity-30" />
-                    <p className="text-sm">暂无笔记</p>
+                    <p className="text-sm">暂无迷体笔记</p>
                     <p className="text-xs mt-1">选中文本后点击「划线」即可添加</p>
                   </div>
                 ) : (
@@ -894,7 +894,7 @@ export default function BookDetailPage() {
                 {book?.format === "txt" && (
                   <>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-600 dark:text-slate-400">字体大小</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-400">迷体字体大小</span>
                       <div className="flex items-center gap-3">
                         <button onClick={() => updateSetting("fontSize", Math.max(12, settings.fontSize - 1))} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600"><Minus className="w-3.5 h-3.5" /></button>
                         <span className="text-sm w-8 text-center">{settings.fontSize}</span>
@@ -902,7 +902,7 @@ export default function BookDetailPage() {
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-600 dark:text-slate-400">行距</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-400">迷体行距</span>
                       <div className="flex items-center gap-3">
                         <button onClick={() => updateSetting("lineHeight", Math.max(1.2, +(settings.lineHeight - 0.1).toFixed(1)))} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600"><Minus className="w-3.5 h-3.5" /></button>
                         <span className="text-sm w-8 text-center">{settings.lineHeight}</span>
@@ -918,7 +918,7 @@ export default function BookDetailPage() {
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-600 dark:text-slate-400">字体</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-400">迷体字体</span>
                       <div className="flex gap-2">
                         {[["serif","宋体"],["sans-serif","黑体"],["system-ui","系统"]].map(([val,label]) => (
                           <button key={val} onClick={() => updateSetting("fontFamily", val)} className={`px-3 py-1 rounded-lg text-xs transition-colors ${settings.fontFamily === val ? "bg-sky-500 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600"}`}>{label}</button>
@@ -929,7 +929,7 @@ export default function BookDetailPage() {
                 )}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">背景</span>
+                    <span className="text-sm text-slate-600 dark:text-slate-400">迷体背景</span>
                     <div className="flex gap-2">
                       {[["default","默认"],["sepia","护眼"],["green","绿意"],["custom","自定义"]].map(([val,label]) => (
                         <button key={val} onClick={() => updateSetting("theme", val)} className={`px-3 py-1 rounded-lg text-xs transition-colors ${settings.theme === val ? "bg-sky-500 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600"}`}>{label}</button>
@@ -1185,7 +1185,7 @@ export default function BookDetailPage() {
                       onClick={() => startReading()}
                       className="px-5 py-2 rounded-xl bg-sky-500 text-white hover:bg-sky-600 transition-colors text-sm font-medium whitespace-nowrap"
                     >
-                      开始阅读
+                      开始迷体阅读
                     </button>
                     <a
                       href={book.file_url}
@@ -1258,7 +1258,7 @@ export default function BookDetailPage() {
           </h2>
           {chapters.length === 0 ? (
             <div className="text-center py-10 text-slate-400">
-              <p>暂无章节信息</p>
+              <p>暂无迷体章节信息</p>
               <p className="text-sm mt-1">点击「开始阅读」直接阅读</p>
             </div>
           ) : (
