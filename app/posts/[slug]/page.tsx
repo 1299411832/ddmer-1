@@ -211,10 +211,10 @@ export default function PostDetailPage() {
           className="inline-flex items-center gap-2 text-sm md:text-base text-slate-500 hover:text-sky-500 transition-colors mb-4 md:mb-8"
         >
           <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          返回文章列表
+          返回迷体列表
         </Link>
         <div className="flex flex-col items-center justify-center py-20 md:py-32 text-slate-400">
-          <p className="text-base md:text-lg">文章不存在或已被删除</p>
+          <p className="text-base md:text-lg">迷体不存在或已被删除</p>
         </div>
       </div>
     );
@@ -244,7 +244,7 @@ export default function PostDetailPage() {
           className="inline-flex items-center gap-1.5 text-sm md:text-base text-slate-500 hover:text-sky-500 transition-colors mb-4 md:mb-8"
         >
           <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          返回文章列表
+          返回迷体列表
         </Link>
       </motion.div>
 
@@ -292,11 +292,11 @@ export default function PostDetailPage() {
             )}
             <span className="flex items-center gap-1 sm:gap-1.5">
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              {post.reading_time} 分钟阅读
+              {post.reading_time} 分钟阅读该迷体
             </span>
             <span className="flex items-center gap-1 sm:gap-1.5">
               <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              {post.views} 次浏览
+              {post.views} 次浏览该迷体
             </span>
             <button
               type="button"
