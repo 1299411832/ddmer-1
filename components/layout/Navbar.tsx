@@ -30,18 +30,18 @@ import {
 } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "主星球", icon: Home },
-  { href: "/bookmark", label: "航站收藏", icon: Bookmark },
+  { href: "/", label: "星球", icon: Home },
+  { href: "/bookmark", label: "航站", icon: Bookmark },
   { href: "https://blog.tsh520.cn/music", label: "迷音乐", icon: Music },
-  { href: "/about", label: "折扣星球", icon: User },
+  { href: "/about", label: "折扣", icon: User },
   { href: "/friends", label: "迷·链", icon: Users },
-  { href: "/posts", label: "贴文星球", icon: BookOpen },
-  { href: "/moments", label: "树洞星球", icon: MessageSquare },
-  { href: "/novel", label: "迷体书屋", icon: Library },
-  { href: "/photowall", label: "迷体缝隙", icon: Camera },
-  { href: "/projects", label: "星项目", icon: FolderGit2 },
-  { href: "/timeline", label: "记录·河", icon: Clock },
-  { href: "/messages", label: "星际树洞", icon: Newspaper },
+  { href: "/posts", label: "星文", icon: BookOpen },
+  { href: "/moments", label: "迷·语", icon: MessageSquare },
+  { href: "/novel", label: "书屋", icon: Library },
+  { href: "/photowall", label: "缝隙", icon: Camera },
+  { href: "/projects", label: "星目", icon: FolderGit2 },
+  { href: "/timeline", label: "录·河", icon: Clock },
+  { href: "/messages", label: "虫洞", icon: Newspaper },
 ];
 
 export default function Navbar() {
