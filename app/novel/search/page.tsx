@@ -94,10 +94,10 @@ function SearchContent() {
         className="flex items-center gap-2 text-slate-500 hover:text-sky-500 mb-6"
       >
         <ArrowLeft className="w-4 h-4" />
-        返回书架
+        返回书屋
       </button>
       <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
-        搜索结果：{query}
+        搜索迷体结果：{query}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredResults.map((book, index) => (
@@ -138,7 +138,7 @@ function SearchContent() {
                   )}
                   {book.originName && (
                     <p className="text-xs text-amber-500 mt-1 truncate">
-                      来源：{book.originName}
+                      迷体来源：{book.originName}
                     </p>
                   )}
                 </div>
@@ -150,7 +150,7 @@ function SearchContent() {
       {filteredResults.length === 0 && !searching && (
         <div className="text-center py-20 text-slate-400">
           <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
-          <p>没有找到相关图书</p>
+          <p>迷体没有找到相关文明</p>
         </div>
       )}
       {filteredResults.length === 0 && searching && <LoadingTips />}
@@ -165,7 +165,7 @@ function SearchContent() {
             {searching ? (
               <span className="flex items-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> 搜索中... {searchResults.length} 条</span>
             ) : (
-              "加载更多"
+              "加载更多迷体星球"
             )}
           </button>
         </div>
