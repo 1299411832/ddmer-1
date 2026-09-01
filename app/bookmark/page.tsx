@@ -65,11 +65,11 @@ export default function BookmarkPage() {
         <div className="flex items-center gap-3">
           <Bookmark className="w-7 h-7 md:w-8 md:h-8 text-sky-500" />
           <h1 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">
-            收藏夹
+            星球航站
           </h1>
         </div>
         <p className="text-slate-500 dark:text-slate-400 mt-2 ml-10 md:ml-11 text-sm md:text-base">
-          收集常用的好用站点和工具{totalSites > 0 ? `  ·  共 ${totalSites} 个站点` : ""}
+          迷体观测收集常用的好用星球站点和星球工具{totalSites > 0 ? `  ·  共 ${totalSites} 个星球站点` : ""}
         </p>
       </motion.div>
 
@@ -116,7 +116,7 @@ export default function BookmarkPage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="搜索站点名称、描述或平台..."
+              placeholder="搜索星球名称、描述或平台..."
               className="w-full pl-9 pr-8 py-2 md:py-2.5 rounded-xl bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm border border-white/40 dark:border-white/10 text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:border-sky-400/30 transition-all shadow-sm"
             />
             {searchQuery && (
@@ -130,7 +130,7 @@ export default function BookmarkPage() {
           </div>
           {searchQuery && (
             <p className="text-xs text-slate-400 mt-2 ml-1">
-              找到 {filtered.reduce((s, c) => s + c.sites.length, 0)} 个匹配站点
+              观测到 {filtered.reduce((s, c) => s + c.sites.length, 0)} 个匹配星球站点
             </p>
           )}
         </motion.div>
@@ -161,7 +161,7 @@ export default function BookmarkPage() {
       {/* 错误 */}
       {error && (
         <div className="text-center py-20">
-          <p className="text-slate-400 text-sm mb-4">加载失败，请刷新重试</p>
+          <p className="text-slate-400 text-sm mb-4">加载星球航站失败，请刷新重试</p>
           <button
             onClick={() => {
               setError(false);
@@ -182,7 +182,7 @@ export default function BookmarkPage() {
       {!loading && !error && data.length === 0 && (
         <div className="text-center py-20">
           <Bookmark className="w-10 h-10 mx-auto mb-3 text-slate-300 dark:text-slate-600" />
-          <p className="text-slate-400 text-sm">暂无收藏，请先在后台添加站点</p>
+          <p className="text-slate-400 text-sm">暂无迷体收藏，请先在后台添加站点</p>
         </div>
       )}
 
@@ -300,7 +300,7 @@ export default function BookmarkPage() {
             <div className="text-center py-16">
               <Search className="w-8 h-8 mx-auto mb-3 text-slate-300 dark:text-slate-600" />
               <p className="text-slate-400 text-sm">
-                没有找到匹配 「{searchQuery}」 的站点
+                没有找到匹配 「{searchQuery}」 的星球站点
               </p>
             </div>
           )}
