@@ -81,9 +81,9 @@ export default function PhotoWallPage() {
       >
         <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
           <Camera className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
-          <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">照片墙</h1>
+          <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">迷体缝隙</h1>
         </div>
-        <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">用照片记录生活的每一个瞬间</p>
+        <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">观测生活的每一刹永恒瞬间</p>
       </motion.div>
 
       {/* 加载状态 */}
@@ -94,7 +94,7 @@ export default function PhotoWallPage() {
       ) : albums.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 md:py-32 text-slate-400">
           <Camera className="w-8 h-8 md:w-12 md:h-12 mb-3 md:mb-4 opacity-40" />
-          <p className="text-sm md:text-base">暂无照片</p>
+          <p className="text-sm md:text-base">暂无迷体宇宙</p>
         </div>
       ) : (
         /* 相册网格 */
