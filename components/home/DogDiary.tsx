@@ -115,7 +115,7 @@ export default function DogDiary() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] font-black text-pink-500 dark:text-pink-400 tracking-widest uppercase bg-pink-50 dark:bg-pink-900/30 px-2 py-0.5 rounded-sm shadow-sm">
-              人间一日游
+              迷体游记
             </span>
             <button
               type="button"
@@ -123,7 +123,7 @@ export default function DogDiary() {
                 e.stopPropagation();
                 fetchQuote();
               }}
-              title="换一句"
+              title="迷·语"
               className="p-1.5 rounded-lg text-slate-400 hover:text-pink-500 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors"
             >
               <svg
@@ -142,11 +142,11 @@ export default function DogDiary() {
             </button>
           </div>
           <p className="text-sm text-slate-700 dark:text-slate-300 font-medium leading-relaxed line-clamp-5 transition-colors duration-700">
-            {loading ? "正在人间漫步..." : text}
+            {loading ? "迷体正在穿越虫洞中..." : text}
           </p>
         </div>
         <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-3 self-end">
-          点击查看全文
+          点击查看全文虫洞
         </p>
       </div>
 
@@ -171,7 +171,7 @@ export default function DogDiary() {
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  人间一日游
+                  迷体游记
                 </h3>
                 <button
                   type="button"
@@ -195,7 +195,7 @@ export default function DogDiary() {
                 </button>
               </div>
               <p className="text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-2">
-                {loading ? "正在人间漫步..." : text}
+                {loading ? "迷体正在穿越虫洞中..." : text}
               </p>
               {source && !loading && (
                 <p className="text-xs text-slate-400 dark:text-slate-500 mb-6 text-right">
@@ -209,7 +209,7 @@ export default function DogDiary() {
                 disabled={loading}
                 className="w-full py-2.5 rounded-xl bg-pink-500 text-white font-bold text-sm hover:bg-pink-600 transition-colors disabled:opacity-50"
               >
-                {loading ? "正在人间漫步..." : "换一句"}
+                {loading ? "迷体正在穿越虫洞中..." : "迷·语"}
               </button>
             </motion.div>
           </motion.div>
