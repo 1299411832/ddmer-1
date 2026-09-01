@@ -310,9 +310,9 @@ export default function MomentsPage() {
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-6 md:mb-12">
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
             <MessageSquare className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
-            <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">说说</h1>
+            <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">树洞星球</h1>
           </div>
-          <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">记录生活中的小确幸</p>
+          <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">记录生活星球中的迷体</p>
         </motion.div>
         <div className="space-y-3 md:space-y-6">
           {[1, 2, 3].map((i) => <div key={i} className="h-20 md:h-24 rounded-2xl bg-white/40 dark:bg-slate-800/40 animate-pulse" />)}
@@ -327,22 +327,22 @@ export default function MomentsPage() {
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-6 md:mb-12">
         <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
           <MessageSquare className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
-          <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">说说</h1>
+          <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">树洞星球</h1>
         </div>
-        <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">记录生活中的小确幸</p>
+        <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 ml-7 md:ml-10">记录生活星球中的迷体</p>
       </motion.div>
 
       {onlyViewId && (
         <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} type="button" onClick={() => setOnlyViewId(null)}
           className="flex items-center gap-1.5 text-xs md:text-sm text-slate-500 hover:text-sky-500 transition-colors mb-4 md:mb-8">
-          <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />返回全部
+          <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />返回树洞
         </motion.button>
       )}
 
       {!loading && moments.length === 0 && (
         <div className="text-center py-12 md:py-20 text-slate-400">
           <MessageSquare className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-3 md:mb-4 opacity-40" />
-          <p className="text-sm md:text-base">暂无说说</p>
+          <p className="text-sm md:text-base">暂无树洞</p>
         </div>
       )}
 
@@ -436,7 +436,7 @@ export default function MomentsPage() {
                                 <span className="text-xs font-medium text-slate-700 dark:text-slate-300 flex-1">{user.login || ""}</span>
                                 <button type="button" onClick={handleLogout}
                                   className="flex items-center gap-1 text-[10px] text-slate-400 hover:text-red-500 transition-colors">
-                                  <LogOut className="w-3 h-3" />退出
+                                  <LogOut className="w-3 h-3" />退出树洞
                                 </button>
                               </div>
                             ) : anonymousUser ? (
@@ -459,7 +459,7 @@ export default function MomentsPage() {
                                 </button>
                                 <div className="flex gap-1.5">
                                   <input type="text" value={nicknameInput} onChange={(e) => setNicknameInput(e.target.value)}
-                                    placeholder="输入昵称直接留言" maxLength={20}
+                                    placeholder="输入星球昵称直接留言" maxLength={20}
                                     onKeyDown={(e) => { if (e.key === "Enter") handleAnonymousLogin(); }}
                                     className="flex-1 px-2 py-1 rounded-lg bg-white/60 dark:bg-slate-700/60 border border-slate-200/30 dark:border-slate-600/30 text-[10px] text-slate-700 dark:text-slate-200 outline-none focus:border-sky-400" />
                                   <button type="button" onClick={handleAnonymousLogin} disabled={anonymousLoading}
@@ -486,7 +486,7 @@ export default function MomentsPage() {
                               </AnimatePresence>
                               <div className="p-2">
                                 <textarea ref={inputRef} value={commentInput} onChange={(e) => setCommentInput(e.target.value)}
-                                  placeholder={user || anonymousUser ? "说点什么..." : "登录后即可评论..."} disabled={!user && !anonymousUser} rows={2}
+                                  placeholder={user || anonymousUser ? "说点别人不知道的什么..." : "登录星球后即可评论..."} disabled={!user && !anonymousUser} rows={2}
                                   onKeyDown={(e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) handleSubmitComment(parseInt(moment.id)); }}
                                   className="w-full bg-transparent text-xs text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-none outline-none disabled:cursor-not-allowed disabled:opacity-50" />
                                 <div className="flex items-center justify-between mt-1 pt-1 border-t border-slate-200/30 dark:border-white/5">
@@ -517,7 +517,7 @@ export default function MomentsPage() {
                             )}
 
                             {!commentsLoading[moment.id] && !commentsMap[moment.id]?.length && (
-                              <p className="text-center text-[10px] text-slate-400 py-2">暂无评论</p>
+                              <p className="text-center text-[10px] text-slate-400 py-2">暂无迷体评论</p>
                             )}
                           </div>
                         </>)}
@@ -576,12 +576,12 @@ function CommentCard({ comment, expandedReplies, onReply, onToggleReplies, liked
             <span>{comment.likes}</span>
           </button>
           <button type="button" onClick={() => onReply(comment)} className="flex items-center gap-0.5 text-[10px] text-slate-400 hover:text-sky-500 transition-colors">
-              <Reply className="w-3 h-3" />回复
+              <Reply className="w-3 h-3" />回复该迷体
             </button>
           {replyCount > 0 && (
             <button type="button" onClick={() => onToggleReplies(comment.id)} className="flex items-center gap-0.5 text-[10px] text-slate-400 hover:text-blue-500 transition-colors ml-auto">
               {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-              {replyCount} 条回复
+              {replyCount} 条树洞
             </button>
           )}
         </div>
