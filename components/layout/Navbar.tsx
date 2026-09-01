@@ -30,18 +30,18 @@ import {
 } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "首页", icon: Home },
-  { href: "/posts", label: "文章", icon: BookOpen },
-  { href: "/moments", label: "说说", icon: MessageSquare },
-  { href: "/novel", label: "图书馆", icon: Library },
-  { href: "/photowall", label: "照片墙", icon: Camera },
-  { href: "/music", label: "音乐", icon: Music },
-  { href: "/bookmark", label: "收藏夹", icon: Bookmark },
-  { href: "/projects", label: "项目", icon: FolderGit2 },
-  { href: "/friends", label: "友链", icon: Users },
-  { href: "/timeline", label: "归档", icon: Clock },
-  { href: "/messages", label: "留言", icon: Newspaper },
-  { href: "/about", label: "关于", icon: User },
+  { href: "/", label: "主星球", icon: Home },
+  { href: "/bookmark", label: "航站收藏", icon: Bookmark },
+  { href: "https://blog.tsh520.cn/music", label: "迷音乐", icon: Music },
+  { href: "/about", label: "折扣星球", icon: User },
+  { href: "/friends", label: "迷·链", icon: Users },
+  { href: "/posts", label: "贴文星球", icon: BookOpen },
+  { href: "/moments", label: "树洞星球", icon: MessageSquare },
+  { href: "/novel", label: "迷体书屋", icon: Library },
+  { href: "/photowall", label: "迷体缝隙", icon: Camera },
+  { href: "/projects", label: "星项目", icon: FolderGit2 },
+  { href: "/timeline", label: "记录·河", icon: Clock },
+  { href: "/messages", label: "星际树洞", icon: Newspaper },
 ];
 
 export default function Navbar() {
@@ -209,11 +209,11 @@ export default function Navbar() {
                   {authorName || "博主"}
                 </span>
                 <span className={`text-xl font-bold ${easterEgg ? "text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500" : "text-sky-500 dark:text-sky-400"}`} style={{ fontFamily: "serif" }}>
-                  の
+                  MT
                 </span>
                 <span className={`text-xl font-bold tracking-tight ${easterEgg ? "text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500" : "text-slate-800 dark:text-white"}`} style={{ fontFamily: "'Noto Serif SC', serif" }}>
-                  小站
-                </span>
+          
+                 </span>
               </div>
             ) : (
               <Link
@@ -226,10 +226,10 @@ export default function Navbar() {
                   {authorName || "博主"}
                 </span>
                 <span className={`text-xl font-bold ${easterEgg ? "text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500" : "text-sky-500 dark:text-sky-400"}`} style={{ fontFamily: "serif" }}>
-                  の
+                  MT
                 </span>
                 <span className={`text-xl font-bold tracking-tight ${easterEgg ? "text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500" : "text-slate-800 dark:text-white"}`} style={{ fontFamily: "'Noto Serif SC', serif" }}>
-                  小站
+                  
                 </span>
               </Link>
             )}
