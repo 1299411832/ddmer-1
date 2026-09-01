@@ -196,11 +196,11 @@ export default function TimelinePage() {
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
             <Clock className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
             <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-              归档
+              迷体长河
             </h1>
           </div>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-            时光河流 · 记录每一个瞬间
+            迷体 · 叹镜世界
           </p>
         </motion.div>
         <div className="flex items-center justify-center py-20 md:py-32">
@@ -223,16 +223,16 @@ export default function TimelinePage() {
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
             <Clock className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
             <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-              归档
+              迷体长河
             </h1>
           </div>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-            时光河流 · 记录每一个瞬间
+            迷体 · 记录每一个瞬间
           </p>
         </motion.div>
         <div className="flex flex-col items-center justify-center py-20 md:py-32 text-slate-400">
           <BookOpen className="w-8 h-8 md:w-12 md:h-12 mb-3 md:mb-4 opacity-40" />
-          <p className="text-sm md:text-base">暂无文章</p>
+          <p className="text-sm md:text-base">暂无迷体</p>
         </div>
       </div>
     );
@@ -250,11 +250,11 @@ export default function TimelinePage() {
         <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
           <Clock className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
           <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-            归档
+            迷体长河
           </h1>
         </div>
         <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-          时光河流 · 共 {allPosts.length} 篇文章
+          迷体 · 共 {allPosts.length} 篇文章
         </p>
       </motion.div>
 
