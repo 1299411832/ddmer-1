@@ -94,11 +94,11 @@ export default function PostsPage() {
         <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
           <BookOpen className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
           <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-            文章
+            星球文章
           </h1>
         </div>
         <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-          记录技术探索、学术研究与生活感悟
+          迷体记录地球online探索、音乐与生活感悟
         </p>
       </motion.div>
 
@@ -111,7 +111,7 @@ export default function PostsPage() {
       >
         <SearchBar
           onSearch={handleSearch}
-          placeholder="搜索文章内容..."
+          placeholder="搜索迷体内容..."
         />
       </motion.div>
 
@@ -133,7 +133,7 @@ export default function PostsPage() {
               {posts.length >= pageSize && "（更多结果可加载）"}
             </span>
           ) : (
-            <span className="text-slate-400">未找到包含「{keyword.trim()}」的文章</span>
+            <span className="text-slate-400">未找到包含「{keyword.trim()}」的迷体线索</span>
           )}
         </motion.div>
       )}
@@ -172,12 +172,12 @@ export default function PostsPage() {
           {keyword ? (
             <>
               <SearchX className="w-12 h-12 mb-4 opacity-40" />
-              <p>未找到包含「{keyword}」的文章</p>
+              <p>未找到包含「{keyword}」的迷体线索</p>
             </>
           ) : (
             <>
               <BookOpen className="w-12 h-12 mb-4 opacity-40" />
-              <p>暂无文章</p>
+              <p>无了！无了？无了~没有迷体线索~</p>
             </>
           )}
         </div>
@@ -212,7 +212,7 @@ export default function PostsPage() {
             onClick={handleLoadMore}
             className="px-5 py-2 md:px-8 md:py-3 rounded-2xl bg-white/10 dark:bg-white/[0.05] backdrop-blur-xl border border-white/20 text-sm md:text-base text-slate-700 dark:text-slate-300 hover:bg-white/20 dark:hover:bg-white/[0.1] transition-all duration-300 hover:-translate-y-0.5"
           >
-            加载更多
+            加载更多迷体星球
           </button>
         </motion.div>
       )}
