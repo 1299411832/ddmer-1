@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 
 const tips = [
-  { text: "正在翻阅书页...", icon: "📖" },
-  { text: "知识正在赶来...", icon: "🏃" },
+  { text: "正在翻阅迷体书页...", icon: "📖" },
+  { text: "迷体正在赶来...", icon: "🏃" },
   { text: "书中自有黄金屋...", icon: "✨" },
-  { text: "别急，好书值得等待...", icon: "☕" },
-  { text: "字里行间加载中...", icon: "🖋️" },
-  { text: "作者正在奋笔疾书...", icon: "✍️" },
+  { text: "别急，迷体值得等待...", icon: "☕" },
+  { text: "迷体字里行间加载中...", icon: "🖋️" },
+  { text: "迷体正在奋笔疾书...", icon: "✍️" },
   { text: "墨水还在晾干...", icon: "🍃" },
-  { text: "正在穿越到书中世界...", icon: "🌍" },
+  { text: "迷体正在穿越到X世界...", icon: "🌍" },
 ];
 
 export default function LoadingTips() {
