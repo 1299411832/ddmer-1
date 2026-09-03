@@ -30,7 +30,7 @@ const navItems = [
   { href: "/photowall", label: "照片墙", icon: Camera },
   { href: "/timeline", label: "归档", icon: Clock },
   { href: "/music", label: "音乐", icon: Music },
-  { href: "/about", label: "关于", icon: User },
+  { href: "https://t.miti.cc.cd", label: "迷体音乐器", icon: User },
 ];
 
 export default function RadialMenu() {
