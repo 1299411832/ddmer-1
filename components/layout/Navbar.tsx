@@ -31,16 +31,16 @@ import {
 
 const navLinks = [
   { href: "/", label: "星球", icon: Home },
+  { href: "/posts", label: "星·文", icon: BookOpen },
+  { href: "/projects", label: "星目", icon: FolderGit2 },
+  { href: "/timeline", label: "录·河", icon: Clock },
   { href: "/bookmark", label: "航站", icon: Bookmark },
-  { href: "https://blog.tsh520.cn/music", label: "迷音乐", icon: Music },
+  { href: "/music", label: "迷音乐", icon: Music },
   { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: User },
   { href: "/friends", label: "迷·链", icon: Users },
-  { href: "/posts", label: "星文", icon: BookOpen },
   { href: "/moments", label: "迷·语", icon: MessageSquare },
   { href: "/novel", label: "书屋", icon: Library },
   { href: "/photowall", label: "缝隙", icon: Camera },
-  { href: "/projects", label: "星目", icon: FolderGit2 },
-  { href: "/timeline", label: "录·河", icon: Clock },
   { href: "/messages", label: "虫洞", icon: Newspaper },
 ];
 
@@ -283,7 +283,7 @@ export default function Navbar() {
               <div className="relative" ref={settingsRef}>
                 <button
                   onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                  title="设置"
+                  title="迷体设置"
                   className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors"
                 >
                   <Settings className="w-5 h-5" />
