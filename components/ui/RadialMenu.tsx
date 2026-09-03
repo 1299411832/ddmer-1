@@ -171,7 +171,7 @@ export default function RadialMenu() {
             className="absolute text-white/60 text-sm"
             style={{ left: cx, top: cy + RADIUS + 60, transform: "translateX(-50%)" }}
           >
-            松开 Tab 跳转
+            松开 Tab 跳转星球
           </div>
         </motion.div>
       )}
