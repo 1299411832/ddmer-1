@@ -55,6 +55,7 @@ const GitHubUserApp = lazy(() => import("./toolbox/GitHubUserApp"));
 const SearchApp = lazy(() => import("./toolbox/SearchApp"));
 const UuidGeneratorApp = lazy(() => import("./toolbox/UuidGeneratorApp"));
 const UsIdentityApp = lazy(() => import("./toolbox/UsIdentityApp"));
+const MitiApp = lazy(() => import("./toolbox/MitiApp"));
 
 interface AppDef {
   id: string;
@@ -113,6 +114,19 @@ const allApps: AppDef[] = [
       </svg>
     ),
     component: GamesApp,
+  },
+    {
+    id: "miti",
+    name: "迷体星球",
+    icon: (
+      <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="8.5" stroke="#38bdf8" strokeWidth="1.5" />
+        <path d="M12 3.5c3.5 2.2 3.5 14.8 0 17M12 3.5c-3.5 2.2-3.5 14.8 0 17M3.5 12h17M4.8 7.5c2.2 2.6 12.2 2.6 14.4 0M4.8 16.5c2.2-2.6 12.2-2.6 14.4 0" stroke="#818cf8" strokeWidth="1.1" opacity="0.7" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="2.2" fill="#38bdf8" />
+        <circle cx="18" cy="7" r="0.9" fill="#38bdf8" opacity="0.8" />
+      </svg>
+    ),
+    component: MitiApp,
   },
   {
     id: "weather",
