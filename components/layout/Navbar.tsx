@@ -31,16 +31,17 @@ import {
 
 const navLinks = [
   { href: "/", label: "星球", icon: Home },
-  { href: "/posts", label: "星·文", icon: BookOpen },
-  { href: "/projects", label: "星目", icon: FolderGit2 },
-  { href: "/timeline", label: "录·河", icon: Clock },
-  { href: "/bookmark", label: "航站", icon: Bookmark },
-  { href: "/music", label: "迷音乐", icon: Music },
-  { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: User },
+  // { href: "/posts", label: "星·文", icon: BookOpen },
+  // { href: "/projects", label: "星目", icon: FolderGit2 },
   { href: "/friends", label: "迷·链", icon: Users },
   { href: "/moments", label: "迷·语", icon: MessageSquare },
-  { href: "/novel", label: "书屋", icon: Library },
   { href: "/photowall", label: "缝隙", icon: Camera },
+  { href: "/timeline", label: "星·核", icon: Clock },
+  { href: "/bookmark", label: "航站", icon: Bookmark },
+  { href: "/photowall", label: "缝隙", icon: Camera },
+  { href: "/music", label: "迷音乐", icon: Music },
+  { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: BadgePercent },
+  { href: "/novel", label: "书屋", icon: Library },
   { href: "/messages", label: "虫洞", icon: Newspaper },
 ];
 
