@@ -36,7 +36,6 @@ const navLinks = [
   { href: "/photowall", label: "缝隙", icon: Camera },
   { href: "/timeline", label: "星·核", icon: Clock },
   { href: "/bookmark", label: "航站", icon: Bookmark },
-  { href: "/photowall", label: "缝隙", icon: Camera },
   { href: "/music", label: "迷音乐", icon: Music },
   { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: Users },
   { href: "/novel", label: "书屋", icon: Library },
