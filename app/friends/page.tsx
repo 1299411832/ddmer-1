@@ -124,10 +124,10 @@ export default function FriendsPage() {
         <div>
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
             <Users className="w-5 h-5 md:w-7 md:h-7 text-sky-500" />
-            <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">友链</h1>
+            <h1 className="text-xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">迷·链</h1>
           </div>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 ml-7 md:ml-10">
-            {loading ? "漂流瓶 · 每一封信笺都来自远方的朋友" : friends.length ? `漂流瓶 · 来自远方的 ${friends.length} 个朋友` : "漂流瓶 · 暂无迷体链条"}
+            {loading ? "星沙瓶 · 我们曾在洪荒中探寻新的远方和星球" : friends.length ? `星沙瓶 · 来自迷体的 ${friends.length} 个朋友` : "漂流瓶 · 暂无迷体链条"}
           </p>
         </div>
         <button
