@@ -78,8 +78,9 @@ export default function MitiApp() {
         <div className="space-y-1">
           {[
             { name: "迷体·gameworld", href: "https://g.miti.cc.cd", desc: "复古游戏资源库" },
-            { name: "迷体影院", href: "https://ce.miti.cc.cd", desc: "豆瓣影视追剧" },
+            { name: "迷体影院", href: "https://ce.miti.cc.cd", desc: "TV版豆瓣影视追剧" },
             { name: "迷体MU·PLAYER播放器", href: "https://t.miti.cc.cd", desc: "音乐播放器" },
+            { name: "迷影", href: "https://m.miti.cc.cd", desc: "影视播放器" },
           ].map((s) => (
             <a
               key={s.href}
