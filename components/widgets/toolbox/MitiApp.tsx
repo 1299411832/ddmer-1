@@ -92,7 +92,7 @@ export default function MitiApp() {
                 <div className="text-xs font-semibold text-slate-700 dark:text-slate-200">{s.name}</div>
                 <div className="text-[10px] text-slate-400 dark:text-slate-500">{s.desc}</div>
               </div>
-              <span className="text-[10px] text-sky-500 font-bold shrink-0">骇入·星球↗</span>
+              <span className="text-[10px] text-sky-500 font-bold shrink-0">骇入↗</span>
             </a>
           ))}
         </div>
