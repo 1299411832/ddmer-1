@@ -9,7 +9,7 @@ const links = [
   },
   {
     href: "/",
-    label: "回本站首页",
+    label: "回星球首页",
     desc: "星球 · 迷体小站",
     primary: false,
   },
@@ -79,7 +79,7 @@ export default function MitiApp() {
           {[
             { name: "迷体·gameworld", href: "https://g.miti.cc.cd", desc: "复古游戏资源库" },
             { name: "迷体影院", href: "https://ce.miti.cc.cd", desc: "豆瓣影视追剧" },
-            { name: "迷体航站", href: "https://t.miti.cc.cd", desc: "收藏与门户" },
+            { name: "迷体MU·PLAYER播放器", href: "https://t.miti.cc.cd", desc: "音乐播放器" },
           ].map((s) => (
             <a
               key={s.href}
@@ -92,7 +92,7 @@ export default function MitiApp() {
                 <div className="text-xs font-semibold text-slate-700 dark:text-slate-200">{s.name}</div>
                 <div className="text-[10px] text-slate-400 dark:text-slate-500">{s.desc}</div>
               </div>
-              <span className="text-[10px] text-sky-500 font-bold shrink-0">进入 ↗</span>
+              <span className="text-[10px] text-sky-500 font-bold shrink-0">骇入·星球↗</span>
             </a>
           ))}
         </div>
