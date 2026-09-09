@@ -31,8 +31,6 @@ import {
 
 const navLinks = [
   { href: "/", label: "星球", icon: Home },
-  // { href: "/posts", label: "星·文", icon: BookOpen },
-  // { href: "/projects", label: "星目", icon: FolderGit2 },
   { href: "/friends", label: "迷·链", icon: Users },
   { href: "/moments", label: "迷·语", icon: MessageSquare },
   { href: "/photowall", label: "缝隙", icon: Camera },
@@ -43,6 +41,8 @@ const navLinks = [
   { href: "https://ficp.fun/s/iZJdfm/?cid=P8GqhZF#/index/home", label: "折扣", icon: BadgePercent },
   { href: "/novel", label: "书屋", icon: Library },
   { href: "/messages", label: "虫洞", icon: Newspaper },
+    { href: "/posts", label: "星·文", icon: BookOpen },
+  { href: "/projects", label: "星目", icon: FolderGit2 },
 ];
 
 export default function Navbar() {
