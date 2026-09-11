@@ -44,6 +44,8 @@ const GenshinApp = lazy(() => import("./toolbox/GenshinApp"));
 const Random4kApp = lazy(() => import("./toolbox/Random4kApp"));
 const GuanyinApp = lazy(() => import("./toolbox/GuanyinApp"));
 const GamesApp = lazy(() => import("./toolbox/GamesApp"));
+const MitiApp = lazy(() => import("./toolbox/MitiApp"));
+const DiscountApp = lazy(() => import("./toolbox/DiscountApp"));
 const WorldTimeApp = lazy(() => import("./toolbox/WorldTimeApp"));
 const HotBoardApp = lazy(() => import("./toolbox/HotBoardApp"));
 const PhoneInfoApp = lazy(() => import("./toolbox/PhoneInfoApp"));
@@ -55,7 +57,6 @@ const GitHubUserApp = lazy(() => import("./toolbox/GitHubUserApp"));
 const SearchApp = lazy(() => import("./toolbox/SearchApp"));
 const UuidGeneratorApp = lazy(() => import("./toolbox/UuidGeneratorApp"));
 const UsIdentityApp = lazy(() => import("./toolbox/UsIdentityApp"));
-const MitiApp = lazy(() => import("./toolbox/MitiApp"));
 
 interface AppDef {
   id: string;
@@ -65,19 +66,6 @@ interface AppDef {
 }
 
 const allApps: AppDef[] = [
-  {
-    id: "miti",
-    name: "迷体星球",
-    icon: (
-      <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="8.5" stroke="#38bdf8" strokeWidth="1.5" />
-        <path d="M12 3.5c3.5 2.2 3.5 14.8 0 17M12 3.5c-3.5 2.2-3.5 14.8 0 17M3.5 12h17M4.8 7.5c2.2 2.6 12.2 2.6 14.4 0M4.8 16.5c2.2-2.6 12.2-2.6 14.4 0" stroke="#818cf8" strokeWidth="1.1" opacity="0.7" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="2.2" fill="#38bdf8" />
-        <circle cx="18" cy="7" r="0.9" fill="#38bdf8" opacity="0.8" />
-      </svg>
-    ),
-    component: MitiApp,
-  },
   // ── 热门资讯 ──
   {
     id: "search",
@@ -127,6 +115,31 @@ const allApps: AppDef[] = [
       </svg>
     ),
     component: GamesApp,
+  },
+  {
+    id: "miti",
+    name: "迷体星球",
+    icon: (
+      <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="8.5" stroke="#38bdf8" strokeWidth="1.5" />
+        <path d="M12 3.5c3.5 2.2 3.5 14.8 0 17M12 3.5c-3.5 2.2-3.5 14.8 0 17M3.5 12h17M4.8 7.5c2.2 2.6 12.2 2.6 14.4 0M4.8 16.5c2.2-2.6 12.2-2.6 14.4 0" stroke="#818cf8" strokeWidth="1.1" opacity="0.7" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="2.2" fill="#38bdf8" />
+        <circle cx="18" cy="7" r="0.9" fill="#38bdf8" opacity="0.8" />
+      </svg>
+    ),
+    component: MitiApp,
+  },
+  {
+    id: "discount",
+    name: "折扣工具",
+    icon: (
+      <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+        <path d="M8.5 8.5h.01M15.5 15.5h.01" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M4.5 19.5l14-15" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M7.5 3.5h9l4 4v9l-4 4h-9l-4-4v-9l4-4z" stroke="#fb923c" strokeWidth="1.5" strokeLinejoin="round" />
+      </svg>
+    ),
+    component: DiscountApp,
   },
   {
     id: "weather",
@@ -938,12 +951,15 @@ export default function Toolbox() {
             }
           }}
           title="工具箱"
-          className="w-12 h-12 rounded-2xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl flex items-center justify-center hover:shadow-2xl transition-all text-slate-600 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/60 active:scale-95"
+          className="w-12 h-12 rounded-2xl overflow-hidden bg-white/40 dark:bg-slate-800/50 shadow-xl hover:shadow-2xl transition-all active:scale-95"
           style={{ touchAction: "none" }}
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-          </svg>
+          <img
+            src="/toolbox-logo.gif"
+            alt="工具箱"
+            draggable={false}
+            className="w-full h-full object-contain select-none pointer-events-none"
+          />
         </button>
       </motion.div>
     </>
