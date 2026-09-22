@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-const MITI_PLAYER_URL = "https://t.miti.cc.cd";
+const MITI_PLAYER_URL = "https://t.miti.cc.cd/";
 
 type PortalCard = {
   id: string;
@@ -75,7 +75,7 @@ export default function MitiPlayerPortalCard() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[560px] overflow-hidden rounded-3xl p-8"
+      className="relative w-full overflow-hidden rounded-3xl p-4 sm:p-6 md:p-8"
       style={{
         perspective: "1200px",
         background:
@@ -100,9 +100,9 @@ export default function MitiPlayerPortalCard() {
       />
 
       {/* 中心标题 */}
-      <div className="relative z-20 text-center mb-10">
+      <div className="relative z-20 text-center mb-6 md:mb-10">
         <h2
-          className="text-4xl font-black tracking-wider"
+          className="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider"
           style={{
             background: "linear-gradient(90deg,#ffffff,#34d399,#7cc7ff)",
             WebkitBackgroundClip: "text",
@@ -112,14 +112,14 @@ export default function MitiPlayerPortalCard() {
         >
           迷体·PLAYER
         </h2>
-        <p className="mt-2 text-slate-300 opacity-70">
+        <p className="mt-2 text-slate-300 opacity-70 text-sm md:text-base">
           PORTAL INTERFACE · 播放器门户
         </p>
       </div>
 
-      {/* 3D 卡片容器 */}
+      {/* 3D 卡片容器，响应式网格 */}
       <div
-        className="relative z-10 grid grid-cols-3 gap-5 max-w-4xl mx-auto"
+        className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-4xl mx-auto"
         style={{
           transformStyle: "preserve-3d",
           transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
@@ -132,12 +132,12 @@ export default function MitiPlayerPortalCard() {
       </div>
 
       {/* 主按钮 */}
-      <div className="relative z-20 mt-10 text-center">
+      <div className="relative z-20 mt-6 md:mt-10 text-center pb-2">
         <a
           href={MITI_PLAYER_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-10 py-3 rounded-2xl font-bold text-slate-900 transition-all active:scale-95 hover:scale-105"
+          className="inline-block px-8 py-2.5 md:px-10 md:py-3 rounded-2xl font-bold text-slate-900 transition-all active:scale-95 hover:scale-105 text-sm md:text-base"
           style={{
             background: "linear-gradient(135deg,#34d399,#22d3ee)",
             boxShadow: "0 0 24px rgba(52,211,153,0.45)",
@@ -181,7 +181,7 @@ function PortalItemCard({
 
   return (
     <div
-      className="relative rounded-2xl p-5 cursor-pointer overflow-hidden shine-effect"
+      className="relative rounded-2xl p-4 md:p-5 cursor-pointer overflow-hidden shine-effect"
       style={{
         transformStyle: "preserve-3d",
         transform: localHover
@@ -202,7 +202,7 @@ function PortalItemCard({
         className="absolute -top-8 -right-8 w-16 h-16 rounded-full opacity-30 blur-xl"
         style={{ background: card.color }}
       />
-      <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+      <h3 className="text-base md:text-lg font-semibold text-white">{card.title}</h3>
       <p className="text-sm text-slate-300 opacity-60 mt-1">{card.subTitle}</p>
     </div>
   );
