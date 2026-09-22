@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+const MitiPlayerPortalCard = lazy(() => import("./toolbox/MitiPlayerPortalCard"));
 const MiyingTVApp = lazy(() => import("./toolbox/MiyingTVApp"));
 const CalendarApp = lazy(() => import("./toolbox/CalendarApp"));
 const CalculatorApp = lazy(() => import("./toolbox/CalculatorApp"));
@@ -154,7 +155,18 @@ const allApps: AppDef[] = [
   ),
   component: MiyingTVApp,
 },
-
+{
+  id: "mitiplayer",
+  name: "迷体・PLAYER",
+  icon: (
+    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+      <path d="M20 7H4C3.44772 7 3 7.44772 3 8V16C3 16.5523 3.44772 17 4 17H20C20.5523 17 21 16.5523 21 16V8C21 7.44772 20.5523 7 20 7Z" stroke="#34d399" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M9 2.5L12 5L15 2.5" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 11L16 14L10 17V11Z" stroke="#e8e8ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  component: MitiPlayerPortalCard,
+},
   {
     id: "weather",
     name: "迷体天气",
