@@ -143,7 +143,7 @@ export default function MitiPlayerPortalCard() {
             boxShadow: "0 0 24px rgba(52,211,153,0.45)",
           }}
         >
-          进入迷体播放器
+          骇入·播放器
         </a>
       </div>
 
