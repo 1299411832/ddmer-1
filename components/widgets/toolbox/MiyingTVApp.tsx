@@ -26,48 +26,48 @@ const modules: ModuleItem[] = [
     id: "recommend",
     label: "推荐影片",
     desc: "今日精选片单",
-    color: "#f5b949",
-    glow: "0 0 18px rgba(245,185,73,0.45)",
+    color: "#7cc7ff",
+    glow: "0 0 18px rgba(124,199,255,0.5)",
     position: "left",
   },
   {
     id: "live-chat",
     label: "实时聊房",
     desc: "边看边聊同频",
-    color: "#7cc7ff",
-    glow: "0 0 18px rgba(124,199,255,0.45)",
+    color: "#a78bfa",
+    glow: "0 0 18px rgba(167,139,250,0.5)",
     position: "left",
   },
   {
     id: "rank",
     label: "人气榜单",
     desc: "热门正在飙升",
-    color: "#a78bfa",
-    glow: "0 0 18px rgba(167,139,250,0.45)",
+    color: "#22d3ee",
+    glow: "0 0 18px rgba(34,211,238,0.5)",
     position: "left",
   },
   {
     id: "reservation",
     label: "我的预约",
     desc: "开播提醒不缺席",
-    color: "#f472b6",
-    glow: "0 0 18px rgba(244,114,182,0.45)",
+    color: "#818cf8",
+    glow: "0 0 18px rgba(129,140,248,0.5)",
     position: "right",
   },
   {
     id: "danmaku",
     label: "弹幕设置",
     desc: "自定义观影氛围",
-    color: "#22d3ee",
-    glow: "0 0 18px rgba(34,211,238,0.45)",
+    color: "#38bdf8",
+    glow: "0 0 18px rgba(56,189,248,0.5)",
     position: "right",
   },
   {
     id: "more",
     label: "更多功能",
     desc: "扩展观影空间",
-    color: "#c084fc",
-    glow: "0 0 18px rgba(192,132,252,0.45)",
+    color: "#c4b5fd",
+    glow: "0 0 18px rgba(196,181,253,0.5)",
     position: "right",
   },
 ];
@@ -91,13 +91,13 @@ export default function MiyingTVApp() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(1200px 600px at 50% 40%, rgba(79,124,255,0.28), rgba(10,10,24,0.92) 60%, #05060f 100%)",
+            "radial-gradient(1200px 600px at 50% 40%, rgba(56,189,248,0.18), rgba(30,41,80,0.75) 55%, rgba(10,12,24,0.95) 100%)",
         }}
       />
 
       {/* 网格底纹 */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="absolute inset-0 opacity-35 pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(rgba(124,199,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(124,199,255,0.08) 1px, transparent 1px)",
@@ -112,7 +112,7 @@ export default function MiyingTVApp() {
         <div className="absolute inset-0 flex items-end justify-center gap-[3px] px-6">
           {Array.from({ length: 64 }).map((_, i) => {
             const height = 14 + ((i * 7) % 40);
-            const color = i % 2 === 0 ? "#7cc7ff" : "#c084fc";
+            const color = i % 2 === 0 ? "#7cc7ff" : "#a78bfa";
             return (
               <div
                 key={i}
@@ -156,10 +156,11 @@ export default function MiyingTVApp() {
           <span
             className="text-3xl font-black tracking-wider"
             style={{
-              background: "linear-gradient(180deg,#fff4c4 0%, #f5b949 45%, #b5741a 100%)",
+              background:
+                "linear-gradient(180deg,#ffffff 0%, #c7e7ff 35%, #7cc7ff 70%, #a78bfa 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 0 10px rgba(245,185,73,0.55))",
+              filter: "drop-shadow(0 0 10px rgba(124,199,255,0.55))",
             }}
           >
             迷影·TV
@@ -181,26 +182,26 @@ export default function MiyingTVApp() {
           ))}
         </div>
 
-        {/* 中心圆环区域（外圈旋转，内芯静止） */}
+        {/* 中心圆环区域 */}
         <div className="flex flex-col items-center justify-center relative">
           {/* 外圈静态光晕 */}
           <div
             className="absolute w-56 h-56 rounded-full pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle, rgba(79,124,255,0.35), rgba(157,78,221,0.15) 55%, transparent 70%)",
+                "radial-gradient(circle, rgba(56,189,248,0.25), rgba(167,139,250,0.12) 55%, transparent 70%)",
             }}
           />
 
-          {/* 旋转的主环（刻度线跟着旋转） */}
+          {/* 旋转主环 */}
           <div
             className="relative w-40 h-40 rounded-full"
             style={{
-              animation: "miying-spin 12s linear infinite",
+              animation: "miying-spin 14s linear infinite",
               background:
-                "conic-gradient(from 0deg, rgba(245,185,73,0.9), rgba(79,124,255,0.6), rgba(192,132,252,0.7), rgba(245,185,73,0.9))",
+                "conic-gradient(from 0deg, rgba(124,199,255,0.9), rgba(34,211,238,0.55), rgba(167,139,250,0.75), rgba(129,140,248,0.6), rgba(124,199,255,0.9))",
               boxShadow:
-                "0 0 30px rgba(245,185,73,0.45), inset 0 0 24px rgba(10,10,30,0.9)",
+                "0 0 30px rgba(124,199,255,0.45), inset 0 0 24px rgba(10,14,30,0.9)",
             }}
           >
             {Array.from({ length: 12 }).map((_, i) => (
@@ -210,7 +211,7 @@ export default function MiyingTVApp() {
                 style={{
                   left: "50%",
                   top: "50%",
-                  background: "rgba(245,185,73,0.7)",
+                  background: "rgba(199,231,255,0.85)",
                   transform: `translate(-50%,-50%) rotate(${i * 30}deg) translateY(-77px)`,
                   borderRadius: 2,
                 }}
@@ -218,28 +219,29 @@ export default function MiyingTVApp() {
             ))}
           </div>
 
-          {/* 静止内芯，覆盖在旋转环上方 */}
+          {/* 静止内芯 */}
           <div
             className="absolute w-32 h-32 rounded-full flex items-center justify-center"
             style={{
               background:
-                "radial-gradient(circle at 40% 40%, #1f2a5c 0%, #0a0f2c 45%, #05070f 100%)",
-              border: "1px solid rgba(245,185,73,0.35)",
-              boxShadow: "inset 0 0 20px rgba(79,124,255,0.35)",
+                "radial-gradient(circle at 40% 40%, #1e2a55 0%, #0f1736 45%, #07091a 100%)",
+              border: "1px solid rgba(124,199,255,0.45)",
+              boxShadow:
+                "inset 0 0 20px rgba(56,189,248,0.35), 0 0 18px rgba(124,199,255,0.25)",
             }}
           >
-            {/* 播放按钮，点击跳转 */}
+            {/* 播放按钮 */}
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center cursor-pointer"
               onClick={() => window.open(MIYING_TV_URL, "_blank")}
               style={{
                 background:
-                  "radial-gradient(circle at 35% 30%, #fff4c4, #f5b949 45%, #b5741a 100%)",
+                  "radial-gradient(circle at 35% 30%, #eaf6ff, #7cc7ff 40%, #6366f1 100%)",
                 boxShadow:
-                  "0 0 25px rgba(245,185,73,0.85), inset 0 -4px 10px rgba(120,70,10,0.6)",
+                  "0 0 25px rgba(124,199,255,0.85), inset 0 -4px 10px rgba(30,64,175,0.55)",
               }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#1a1105">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#07121f">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </div>
@@ -279,10 +281,10 @@ export default function MiyingTVApp() {
           className="group flex-1 max-w-[220px] py-3 rounded-2xl font-bold text-center transition-all active:scale-95"
           style={{
             background:
-              "linear-gradient(135deg, #fff4c4 0%, #f5b949 40%, #d8921d 100%)",
-            color: "#2a1a05",
+              "linear-gradient(135deg, #eaf6ff 0%, #7cc7ff 40%, #6366f1 100%)",
+            color: "#07121f",
             boxShadow:
-              "0 10px 30px rgba(245,185,73,0.45), inset 0 -4px 10px rgba(120,70,10,0.35)",
+              "0 10px 30px rgba(124,199,255,0.45), inset 0 -4px 10px rgba(30,64,175,0.45)",
           }}
         >
           立即进入
@@ -294,7 +296,7 @@ export default function MiyingTVApp() {
             background: "rgba(255,255,255,0.04)",
             border: "1px solid rgba(124,199,255,0.35)",
             color: "#d6e4ff",
-            boxShadow: "0 0 18px rgba(79,124,255,0.25)",
+            boxShadow: "0 0 18px rgba(56,189,248,0.25)",
           }}
         >
           我的片单
@@ -333,9 +335,11 @@ function ModuleCard({
       className="relative rounded-2xl p-3 cursor-pointer transition-all duration-300"
       style={{
         background:
-          "linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
-        border: `1px solid ${active ? module.color : "rgba(255,255,255,0.12)"}`,
-        boxShadow: active ? module.glow : "none",
+          "linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02))",
+        border: `1px solid ${active ? module.color : "rgba(124,199,255,0.18)"}`,
+        boxShadow: active
+          ? module.glow
+          : "inset 0 0 20px rgba(56,189,248,0.08)",
         transform: active ? "translateY(-2px)" : "translateY(0)",
       }}
     >
