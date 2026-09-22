@@ -143,7 +143,7 @@ const allApps: AppDef[] = [
   component: DiscountApp,
 },
  {
-  id: "miying-tv",
+  id: "miyingtv",
   name: "迷影・TV",
   icon: (
     <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
