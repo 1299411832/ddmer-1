@@ -1,74 +1,408 @@
 "use client";
-import { useState } from "react";
-const MIYING_TV_URL = "https://tv.miti.cc.cd/";
+import { useState, useEffect } from "react";
+
+const MIYING_TV_URL = "https://miti1.cc.cd";
+const HOME_URL = "/";
+
 const tips = [
   "开启你的私人影厅 🎬",
   "光影流转，好戏正在上演 ✨",
   "戴上耳机，沉浸式观影体验",
   "好片不等人，速来打卡",
-  "每一部影片，都是一段平行宇宙"
+  "每一部影片，都是一段平行宇宙",
 ];
+
+type ModuleItem = {
+  id: string;
+  label: string;
+  desc: string;
+  color: string;
+  glow: string;
+  position: "left" | "right";
+};
+
+const modules: ModuleItem[] = [
+  {
+    id: "recommend",
+    label: "推荐影片",
+    desc: "今日精选片单",
+    color: "#f5b949",
+    glow: "0 0 18px rgba(245,185,73,0.45)",
+    position: "left",
+  },
+  {
+    id: "live-chat",
+    label: "实时聊房",
+    desc: "边看边聊同频",
+    color: "#7cc7ff",
+    glow: "0 0 18px rgba(124,199,255,0.45)",
+    position: "left",
+  },
+  {
+    id: "rank",
+    label: "人气榜单",
+    desc: "热门正在飙升",
+    color: "#a78bfa",
+    glow: "0 0 18px rgba(167,139,250,0.45)",
+    position: "left",
+  },
+  {
+    id: "reservation",
+    label: "我的预约",
+    desc: "开播提醒不缺席",
+    color: "#f472b6",
+    glow: "0 0 18px rgba(244,114,182,0.45)",
+    position: "right",
+  },
+  {
+    id: "danmaku",
+    label: "弹幕设置",
+    desc: "自定义观影氛围",
+    color: "#22d3ee",
+    glow: "0 0 18px rgba(34,211,238,0.45)",
+    position: "right",
+  },
+  {
+    id: "more",
+    label: "更多功能",
+    desc: "扩展观影空间",
+    color: "#c084fc",
+    glow: "0 0 18px rgba(192,132,252,0.45)",
+    position: "right",
+  },
+];
+
 export default function MiyingTVApp() {
-  const [tip] = useState(() => tips[Math.floor(Math.random() * tips.length)]);
+  const [tipText, setTipText] = useState(tips[0]);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    setTipText(randomTip);
+  }, []);
+
+  const leftModules = modules.filter((m) => m.position === "left");
+  const rightModules = modules.filter((m) => m.position === "right");
+
   return (
-    <div className="flex flex-col h-full">
-      {/* 迷影TV主卡片 蓝紫科技渐变 */}
-      <div className="relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white flex-1 flex flex-col justify-between min-h-[180px]">
-        {/* 装饰光晕 */}
-        <div className="pointer-events-none absolute -top-10 -right-8 w-36 h-36 rounded-full bg-white/25 blur-2xl" />
-        <div className="pointer-events-none absolute -bottom-12 -left-6 w-28 h-28 rounded-full bg-fuchsia-300/40 blur-xl" />
-        <div className="relative">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-white/25 backdrop-blur flex items-center justify-center text-xl font-black shadow-lg">
-              🎬
-            </div>
-            <div>
-              <div className="text-lg font-black leading-tight tracking-wide">迷影・TV</div>
-              <div className="text-[11px] text-white/80">MIYING TV STATION</div>
-            </div>
-          </div>
-          <p className="mt-4 text-[13px] leading-relaxed text-white/90">
-            影视交互控制台：影片推荐、实时聊房、片单预约一站式观影空间。
-          </p>
-        </div>
-        <div className="relative mt-5 grid grid-cols-2 gap-2">
-          <a
-            href={MIYING_TV_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group rounded-xl px-3 py-2.5 text-center transition-all duration-200 active:scale-95 bg-white text-violet-600 font-bold shadow-lg hover:shadow-xl"
-          >
-            <div className="text-[13px] flex items-center justify-center gap-1">
-              立即进入
-              <svg
-                className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M7 17L17 7M7 7h10v10" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <div className="text-[10px] opacity-70 mt-0.5">私人影视空间</div>
-          </a>
-          <a
-            href="/"
-            className="group rounded-xl px-3 py-2.5 text-center transition-all duration-200 active:scale-95 bg-white/15 hover:bg-white/25 backdrop-blur text-white font-semibold"
-          >
-            <div className="text-[13px]">我的片单</div>
-            <div className="text-[10px] opacity-70 mt-0.5">迷影收藏夹</div>
-          </a>
+    <div className="relative w-full min-h-[520px] rounded-3xl overflow-hidden text-white">
+      {/* 背景 */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(1200px 600px at 50% 40%, rgba(79,124,255,0.28), rgba(10,10,24,0.92) 60%, #05060f 100%)",
+        }}
+      />
+
+      {/* 网格底纹 */}
+      <div
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(124,199,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(124,199,255,0.08) 1px, transparent 1px)",
+          backgroundSize: "34px 34px",
+          maskImage:
+            "radial-gradient(600px 320px at 50% 42%, black 40%, transparent 75%)",
+        }}
+      />
+
+      {/* 顶部频谱装饰 */}
+      <div className="absolute top-0 left-0 right-0 h-40 pointer-events-none opacity-70">
+        <div className="absolute inset-0 flex items-end justify-center gap-[3px] px-6">
+          {Array.from({ length: 64 }).map((_, i) => {
+            const height = 14 + ((i * 7) % 40);
+            const color = i % 2 === 0 ? "#7cc7ff" : "#c084fc";
+            return (
+              <div
+                key={i}
+                style={{
+                  width: 3,
+                  height: `${height}px`,
+                  background: color,
+                  borderRadius: 2,
+                  opacity: 0.35 + ((i * 13) % 40) / 100,
+                }}
+              />
+            );
+          })}
         </div>
       </div>
-      {/* 底部随机文案卡片 */}
-      <div className="mt-3 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-dashed border-violet-300/60 dark:border-violet-500/30">
-        <span className="text-sm shrink-0">🎞️</span>
-        <div>
-          <div className="text-[10px] font-bold text-violet-500 dark:text-violet-400">影厅提示</div>
-          <div className="text-xs text-slate-600 dark:text-slate-300">{tip}</div>
+
+      {/* 底部频谱装饰 */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none opacity-50">
+        <div className="absolute inset-0 flex items-start justify-center gap-[3px] px-6">
+          {Array.from({ length: 48 }).map((_, i) => {
+            const height = 10 + ((i * 11) % 28);
+            return (
+              <div
+                key={i}
+                style={{
+                  width: 3,
+                  height: `${height}px`,
+                  background: i % 2 === 0 ? "#a78bfa" : "#22d3ee",
+                  borderRadius: 2,
+                  opacity: 0.3 + ((i * 17) % 30) / 100,
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 标题 */}
+      <div className="relative z-10 flex items-center justify-center pt-8">
+        <div className="flex items-center gap-3">
+          <span
+            className="text-3xl font-black tracking-wider"
+            style={{
+              background: "linear-gradient(180deg,#fff4c4 0%, #f5b949 45%, #b5741a 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 0 10px rgba(245,185,73,0.55))",
+            }}
+          >
+            迷影·TV
+          </span>
+        </div>
+      </div>
+
+      {/* 主体座舱 */}
+      <div className="relative z-10 flex items-center justify-between gap-4 px-6 mt-4">
+        {/* 左侧卡片 */}
+        <div className="flex flex-col gap-3 w-[28%] min-w-[140px]">
+          {leftModules.map((m) => (
+            <ModuleCard
+              key={m.id}
+              module={m}
+              active={activeId === m.id}
+              onHover={setActiveId}
+            />
+          ))}
+        </div>
+
+        {/* 中心圆环区域（外圈旋转，内芯静止） */}
+        <div className="flex flex-col items-center justify-center relative">
+          {/* 外圈静态光晕 */}
+          <div
+            className="absolute w-56 h-56 rounded-full pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(79,124,255,0.35), rgba(157,78,221,0.15) 55%, transparent 70%)",
+            }}
+          />
+
+          {/* 旋转的主环（刻度线跟着旋转） */}
+          <div
+            className="relative w-40 h-40 rounded-full"
+            style={{
+              animation: "miying-spin 12s linear infinite",
+              background:
+                "conic-gradient(from 0deg, rgba(245,185,73,0.9), rgba(79,124,255,0.6), rgba(192,132,252,0.7), rgba(245,185,73,0.9))",
+              boxShadow:
+                "0 0 30px rgba(245,185,73,0.45), inset 0 0 24px rgba(10,10,30,0.9)",
+            }}
+          >
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-3 h-[2px]"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  background: "rgba(245,185,73,0.7)",
+                  transform: `translate(-50%,-50%) rotate(${i * 30}deg) translateY(-77px)`,
+                  borderRadius: 2,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* 静止内芯，覆盖在旋转环上方 */}
+          <div
+            className="absolute w-32 h-32 rounded-full flex items-center justify-center"
+            style={{
+              background:
+                "radial-gradient(circle at 40% 40%, #1f2a5c 0%, #0a0f2c 45%, #05070f 100%)",
+              border: "1px solid rgba(245,185,73,0.35)",
+              boxShadow: "inset 0 0 20px rgba(79,124,255,0.35)",
+            }}
+          >
+            {/* 播放按钮，点击跳转 */}
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center cursor-pointer"
+              onClick={() => window.open(MIYING_TV_URL, "_blank")}
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 30%, #fff4c4, #f5b949 45%, #b5741a 100%)",
+                boxShadow:
+                  "0 0 25px rgba(245,185,73,0.85), inset 0 -4px 10px rgba(120,70,10,0.6)",
+              }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#1a1105">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* 中心标题 */}
+          <div className="mt-6 text-center">
+            <div
+              className="text-sm tracking-[0.3em] text-white/70"
+              style={{ textShadow: "0 0 10px rgba(124,199,255,0.5)" }}
+            >
+              MIYING TV
+            </div>
+            <div className="text-xs text-white/40 mt-1">影视交互控制台</div>
+          </div>
+        </div>
+
+        {/* 右侧卡片 */}
+        <div className="flex flex-col gap-3 w-[28%] min-w-[140px]">
+          {rightModules.map((m) => (
+            <ModuleCard
+              key={m.id}
+              module={m}
+              active={activeId === m.id}
+              onHover={setActiveId}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* 底部按钮区 */}
+      <div className="relative z-10 flex items-center justify-center gap-4 mt-6 px-6">
+        <a
+          href={MIYING_TV_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex-1 max-w-[220px] py-3 rounded-2xl font-bold text-center transition-all active:scale-95"
+          style={{
+            background:
+              "linear-gradient(135deg, #fff4c4 0%, #f5b949 40%, #d8921d 100%)",
+            color: "#2a1a05",
+            boxShadow:
+              "0 10px 30px rgba(245,185,73,0.45), inset 0 -4px 10px rgba(120,70,10,0.35)",
+          }}
+        >
+          立即进入
+        </a>
+        <a
+          href={HOME_URL}
+          className="flex-1 max-w-[220px] py-3 rounded-2xl font-semibold text-center transition-all active:scale-95"
+          style={{
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(124,199,255,0.35)",
+            color: "#d6e4ff",
+            boxShadow: "0 0 18px rgba(79,124,255,0.25)",
+          }}
+        >
+          我的片单
+        </a>
+      </div>
+
+      {/* 底部提示 */}
+      <div className="relative z-10 text-center mt-4 pb-5 text-sm text-white/70">
+        {tipText}
+      </div>
+
+      {/* 全局动画样式 */}
+      <style>{`
+        @keyframes miying-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function ModuleCard({
+  module,
+  active,
+  onHover,
+}: {
+  module: ModuleItem;
+  active: boolean;
+  onHover: (id: string | null) => void;
+}) {
+  return (
+    <div
+      onMouseEnter={() => onHover(module.id)}
+      onMouseLeave={() => onHover(null)}
+      className="relative rounded-2xl p-3 cursor-pointer transition-all duration-300"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
+        border: `1px solid ${active ? module.color : "rgba(255,255,255,0.12)"}`,
+        boxShadow: active ? module.glow : "none",
+        transform: active ? "translateY(-2px)" : "translateY(0)",
+      }}
+    >
+      <div className="flex items-center gap-3">
+        <div
+          className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+          style={{
+            background: `${module.color}22`,
+            border: `1px solid ${module.color}55`,
+            color: module.color,
+            boxShadow: `0 0 12px ${module.color}44`,
+          }}
+        >
+          <ModuleIcon id={module.id} />
+        </div>
+        <div className="min-w-0">
+          <div className="text-sm font-semibold text-white truncate">
+            {module.label}
+          </div>
+          <div className="text-[11px] text-white/50 truncate">{module.desc}</div>
         </div>
       </div>
     </div>
   );
+}
+
+function ModuleIcon({ id }: { id: string }) {
+  switch (id) {
+    case "recommend":
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 4h16v16H4z" opacity="0.2" />
+          <path d="M8 17l4-5 3 3 2-2 3 4z" />
+        </svg>
+      );
+    case "live-chat":
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      );
+    case "rank":
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M3 17l6-6 4 4 8-8" />
+        </svg>
+      );
+    case "reservation":
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+        </svg>
+      );
+    case "danmaku":
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M3 5h18v10H3zM7 19h10" />
+        </svg>
+      );
+    case "more":
+    default:
+      return (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="5" cy="12" r="2" />
+          <circle cx="12" cy="12" r="2" />
+          <circle cx="19" cy="12" r="2" />
+        </svg>
+      );
+  }
 }
