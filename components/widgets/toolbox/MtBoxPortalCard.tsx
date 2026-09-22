@@ -3,75 +3,74 @@ import { useState, useEffect, useRef } from "react";
 
 const MT_BOX_URL = "https://w.miti.cc.cd";
 
-type NavItem = {
-  id: string;
-  label: string;
-};
-
-type CardItem = {
+type PortalCard = {
   id: string;
   title: string;
-  desc: string;
-  tag: string;
+  subTitle: string;
   color: string;
 };
 
-const navItems: NavItem[] = [
-  { id: "home", label: "首页" },
-  { id: "single", label: "单机" },
-  { id: "mobile", label: "手游" },
-  { id: "switch", label: "Switch" },
-  { id: "mod", label: "MOD" },
-];
-
-const cards: CardItem[] = [
+const cardList: PortalCard[] = [
   {
-    id: "hot",
-    title: "热门资源",
-    desc: "全网热门游戏一键入库",
-    tag: "热门",
+    id: "game-single",
+    title: "单机游戏",
+    subTitle: "海量单机资源库",
     color: "#fb923c",
   },
   {
-    id: "latest",
-    title: "最新更新",
-    desc: "今日新增 328 个资源",
-    tag: "今日更新",
-    color: "#22d3ee",
+    id: "game-mobile",
+    title: "手游专区",
+    subTitle: "手机游戏合集",
+    color: "#f43f5e",
   },
   {
-    id: "mod",
-    title: "MOD 合集",
-    desc: "模组、补丁、扩展资源聚合",
-    tag: "MOD",
-    color: "#a78bfa",
+    id: "game-switch",
+    title: "Switch游戏",
+    subTitle: "掌机游戏资源",
+    color: "#a855f7",
+  },
+  {
+    id: "mod-resource",
+    title: "MOD模组",
+    subTitle: "游戏模组资源",
+    color: "#22c55e",
+  },
+  {
+    id: "update-log",
+    title: "持续更新",
+    subTitle: "资源实时维护",
+    color: "#3b82f6",
+  },
+  {
+    id: "resource-stats",
+    title: "资源统计",
+    subTitle: "万级游戏资源仓库",
+    color: "#06b6d4",
   },
 ];
 
 export default function MtBoxPortalCard() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [isHover, setIsHover] = useState(false);
-  const [activeNav, setActiveNav] = useState("home");
+  const [isHoverContainer, setIsHoverContainer] = useState(false);
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setMouse({ x, y });
+  };
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-
-    const handleMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      setMouse({
-        x: e.clientX - rect.left - rect.width / 2,
-        y: e.clientY - rect.top - rect.height / 2,
-      });
-    };
-
-    el.addEventListener("mousemove", handleMove);
-    return () => el.removeEventListener("mousemove", handleMove);
+    el.addEventListener("mousemove", handleMouseMove);
+    return () => el.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const rotateX = isHover ? -mouse.y / 50 : 0;
-  const rotateY = isHover ? mouse.x / 50 : 0;
+  const rotateX = isHoverContainer ? -mouse.y / 45 : 0;
+  const rotateY = isHoverContainer ? mouse.x / 45 : 0;
 
   return (
     <div
@@ -80,28 +79,28 @@ export default function MtBoxPortalCard() {
       style={{
         perspective: "1200px",
         background:
-          "radial-gradient(900px 500px at 20% 30%, rgba(251,146,60,0.12), rgba(34,211,238,0.08) 45%, rgba(15,23,42,0.85) 70%, #070a13 100%)",
+          "radial-gradient(900px 500px at 50% 40%, rgba(251,146,60,0.14), rgba(15,23,42,0.85) 50%, #070a13 100%)",
       }}
-      onMouseEnter={() => setIsHover(true)}
+      onMouseEnter={() => setIsHoverContainer(true)}
       onMouseLeave={() => {
-        setIsHover(false);
+        setIsHoverContainer(false);
         setMouse({ x: 0, y: 0 });
       }}
     >
       {/* 背景网格 */}
       <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity-25 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(34,211,238,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(34,211,238,0.08) 1px, transparent 1px)
+            linear-gradient(rgba(251,146,60,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(251,146,60,0.08) 1px, transparent 1px)
           `,
           backgroundSize: "40px 40px",
         }}
       />
 
-      {/* 顶部标题 */}
-      <div className="relative z-20 mb-6 md:mb-8">
+      {/* 中心标题区域，和迷影TV保持一致 */}
+      <div className="relative z-20 text-center mb-6 md:mb-10">
         <h2
           className="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider"
           style={{
@@ -113,189 +112,101 @@ export default function MtBoxPortalCard() {
         >
           MT·BOX
         </h2>
-        <p className="mt-1 text-slate-300 opacity-70 text-sm md:text-base">
-          迷体星球 · 全网游戏资源聚合
+        <p className="mt-2 text-slate-300 opacity-70 text-sm md:text-base">
+          迷体星球·全网游戏资源聚合
         </p>
-        <p className="mt-0.5 text-slate-400 text-xs md:text-sm">
+        <p className="mt-1 text-slate-400 text-xs md:text-sm">
           优质游戏资源 · 免费 · 持续更新 · 单机 / 手游 / Switch / MOD 一站式聚合
         </p>
       </div>
 
-      {/* 主体区域 */}
+      {/* 3D卡片容器，响应式网格：手机1列，平板2列，桌面3列，和迷影TV完全相同 */}
       <div
-        className="relative z-10 grid grid-cols-12 gap-4 md:gap-6"
+        className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-4xl mx-auto"
         style={{
           transformStyle: "preserve-3d",
           transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-          transition: isHover ? "none" : "transform 0.6s ease-out",
+          transition: isHoverContainer ? "none" : "transform 0.6s ease-out",
         }}
       >
-        {/* 左侧导航 */}
-        <div className="col-span-12 sm:col-span-3 md:col-span-2">
-          <div className="rounded-2xl p-3 md:p-4 bg-white/5 border border-white/10 backdrop-blur-md">
-            <div className="text-xs text-slate-400 mb-2 px-2">导航</div>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveNav(item.id)}
-                className={`w-full text-left px-3 py-2 rounded-xl text-sm transition-all mb-1 ${
-                  activeNav === item.id
-                    ? "text-white"
-                    : "text-slate-300 hover:text-white"
-                }`}
-                style={{
-                  background:
-                    activeNav === item.id
-                      ? "linear-gradient(90deg, rgba(251,146,60,0.35), rgba(34,211,238,0.25))"
-                      : "transparent",
-                  boxShadow:
-                    activeNav === item.id
-                      ? "0 0 18px rgba(251,146,60,0.35)"
-                      : "none",
-                  border:
-                    activeNav === item.id
-                      ? "1px solid rgba(251,146,60,0.5)"
-                      : "1px solid transparent",
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 中央推荐卡 */}
-        <div className="col-span-12 sm:col-span-9 md:col-span-7">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-            {cards.map((card, index) => (
-              <div
-                key={card.id}
-                className="relative rounded-2xl p-4 cursor-pointer overflow-hidden"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
-                  border: `1px solid ${card.color}55`,
-                  boxShadow: `0 0 18px ${card.color}33`,
-                  transformStyle: "preserve-3d",
-                  transform: `translateZ(${(index + 1) * 4}px)`,
-                  transition: "transform 0.35s ease-out",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateZ(24px) scale(1.03)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = `translateZ(${(index + 1) * 4}px)`;
-                }}
-              >
-                <div
-                  className="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full"
-                  style={{
-                    background: card.color + "33",
-                    color: card.color,
-                    border: `1px solid ${card.color}66`,
-                  }}
-                >
-                  {card.tag}
-                </div>
-                <h3 className="text-white font-semibold text-sm md:text-base">
-                  {card.title}
-                </h3>
-                <p className="text-slate-300 text-xs mt-1">{card.desc}</p>
-                <div
-                  className="absolute -bottom-6 -right-6 w-20 h-20 rounded-full opacity-20 blur-xl"
-                  style={{ background: card.color }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 右侧主按钮 */}
-        <div className="col-span-12 md:col-span-3 flex md:flex-col gap-3 md:gap-4">
-          <a
-            href={MT_BOX_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex flex-col items-center justify-center rounded-2xl py-5 text-center cursor-pointer transition-all"
-            style={{
-              background:
-                "linear-gradient(135deg, #fb923c, #f43f5e 50%, #a78bfa)",
-              boxShadow: "0 0 28px rgba(251,146,60,0.5)",
-              transformStyle: "preserve-3d",
-              transform: "translateZ(8px)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform =
-                "translateZ(28px) scale(1.04)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateZ(8px)";
-            }}
-          >
-            <div className="text-white text-xs opacity-80 mb-1">立即进入</div>
-            <div className="text-white text-lg md:text-xl font-black">
-              打开百宝箱
-            </div>
-            <div className="mt-2 flex gap-1">
-              <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" style={{ animationDelay: "0.2s" }} />
-              <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" style={{ animationDelay: "0.4s" }} />
-            </div>
-          </a>
-
-          {/* 状态面板 */}
-          <div className="rounded-2xl p-4 bg-white/5 border border-white/10 backdrop-blur-md">
-            <div className="text-xs text-slate-400 mb-2">资源状态</div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-slate-300 text-xs">在线资源</span>
-              <span className="text-white font-bold text-sm">12,860</span>
-            </div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-slate-300 text-xs">今日更新</span>
-              <span className="text-cyan-300 font-bold text-sm">+328</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-slate-300 text-xs">运行状态</span>
-              <span className="text-emerald-300 text-xs">● 正常</span>
-            </div>
-          </div>
-        </div>
+        {cardList.map((card, index) => (
+          <PortalItemCard key={card.id} card={card} index={index} />
+        ))}
       </div>
 
-      {/* 底部装饰 */}
-      <div className="relative z-20 mt-6 md:mt-8 flex flex-wrap gap-2 text-[11px] md:text-xs">
-        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
-          免费
-        </span>
-        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
-          持续更新
-        </span>
-        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
-          单机 / 手游 / Switch / MOD
-        </span>
-        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
-          一站式聚合
-        </span>
+      {/* 主跳转按钮，位置样式对齐迷影TV */}
+      <div className="relative z-20 mt-6 md:mt-10 text-center pb-2">
+        <a
+          href={MT_BOX_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-8 py-2.5 md:px-10 md:py-3 rounded-2xl font-bold text-slate-900 transition-all active:scale-95 hover:scale-105 text-sm md:text-base"
+          style={{
+            background: "linear-gradient(135deg,#fb923c,#22d3ee)",
+            boxShadow: "0 0 24px rgba(251,146,60,0.45)",
+          }}
+        >
+          进入 MT·BOX
+        </a>
       </div>
 
-      {/* 轻喜剧像素装饰 */}
-      <div className="pointer-events-none absolute right-6 bottom-10 text-2xl opacity-80">
-        🎮
-      </div>
-      <div className="pointer-events-none absolute left-1/3 bottom-6 text-xl opacity-70">
-        ⭐
-      </div>
-      <div className="pointer-events-none absolute right-1/4 top-20 text-lg opacity-60">
-        📦
-      </div>
-
+      {/* 流光动画 */}
       <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
+        @keyframes shine {
+          0%   { transform: translateX(-100%) skewX(-20deg); }
+          100% { transform: translateX(200%)  skewX(-20deg); }
+        }
+        .shine-effect::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+          animation: shine 2.8s infinite linear;
+          pointer-events: none;
         }
       `}</style>
+    </div>
+  );
+}
+
+function PortalItemCard({
+  card,
+  index,
+}: {
+  card: PortalCard;
+  index: number;
+}) {
+  const [localHover, setLocalHover] = useState(false);
+  const delay = index * 0.08;
+
+  return (
+    <div
+      className="relative rounded-2xl p-4 md:p-5 cursor-pointer overflow-hidden shine-effect"
+      style={{
+        transformStyle: "preserve-3d",
+        transform: localHover
+          ? "translateZ(24px) scale(1.03)"
+          : "translateZ(0)",
+        transition: `all 0.4s cubic-bezier(0.2,0,0.2,1) ${delay}s`,
+        background:
+          "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+        border: `1px solid ${
+          localHover ? card.color + "99" : "rgba(255,255,255,0.1)"
+        }`,
+        boxShadow: localHover ? `0 0 22px ${card.color}44` : "none",
+      }}
+      onMouseEnter={() => setLocalHover(true)}
+      onMouseLeave={() => setLocalHover(false)}
+    >
+      <div
+        className="absolute -top-8 -right-8 w-16 h-16 rounded-full opacity-30 blur-xl"
+        style={{ background: card.color }}
+      />
+      <h3 className="text-base md:text-lg font-semibold text-white">{card.title}</h3>
+      <p className="text-sm text-slate-300 opacity-60 mt-1">{card.subTitle}</p>
     </div>
   );
 }
