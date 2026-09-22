@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+const MtBoxPortalCard = lazy(() => import("./toolbox/MtBoxPortalCard"));
 const MitiPlayerPortalCard = lazy(() => import("./toolbox/MitiPlayerPortalCard"));
 const MiyingTVApp = lazy(() => import("./toolbox/MiyingTVApp"));
 const CalendarApp = lazy(() => import("./toolbox/CalendarApp"));
@@ -81,6 +82,19 @@ const allApps: AppDef[] = [
     ),
     component: SearchApp,
   },
+  {
+  id: "mtbox",
+  name: "MT·BOX",
+  icon: (
+    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="6" width="18" height="13" rx="2" stroke="#fb923c" strokeWidth="1.5" />
+      <path d="M8 12h8M12 9v6" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M7 3l5 3 5-3" stroke="#f43f5e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  component: MtBoxPortalCard,
+},
+
   {
     id: "hotboard",
     name: "迷体热榜",
