@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+const DiscountApp = lazy(() => import("./toolbox/DiscountApp"));
 const CalendarApp = lazy(() => import("./toolbox/CalendarApp"));
 const CalculatorApp = lazy(() => import("./toolbox/CalculatorApp"));
 const ClockApp = lazy(() => import("./toolbox/ClockApp"));
@@ -129,18 +130,18 @@ const allApps: AppDef[] = [
     ),
     component: MitiApp,
   },
-  {
-    id: "discount",
-    name: "折扣工具",
-    icon: (
-      <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
-        <path d="M8.5 8.5h.01M15.5 15.5h.01" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M4.5 19.5l14-15" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M7.5 3.5h9l4 4v9l-4 4h-9l-4-4v-9l4-4z" stroke="#fb923c" strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
-    component: DiscountApp,
-  },
+{
+  id: "discount",
+  name: "折扣工具",
+  icon: (
+    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+      <path d="M8.5 8.5h.01M15.5 15.5h.01" stroke="#f97316" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M4.5 19.5l14-15" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M7.5 3.5h9l4 4v9l-4 4h-9l-4-4v-9l4-4z" stroke="#fb923c" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  ),
+  component: DiscountApp,
+},
   {
     id: "weather",
     name: "迷体天气",
