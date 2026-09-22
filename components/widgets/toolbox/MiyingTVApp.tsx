@@ -1,11 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Film, MessageSquare, TrendingUp, Calendar, Terminal, ChevronRight, Tv } from 'lucide-react';
-
-// 跳转地址，按需修改
-const MIYING_TV_URL = "https://tv.miti.cc.cd";
-const HOME_URL = "/";
-
-// 底部随机趣味文案
+"use client";
+import { useState } from "react";
+const MIYING_TV_URL = "https://tv.miti.cc.cd/";
 const tips = [
   "开启你的私人影厅 🎬",
   "光影流转，好戏正在上演 ✨",
@@ -13,115 +8,67 @@ const tips = [
   "好片不等人，速来打卡",
   "每一部影片，都是一段平行宇宙"
 ];
-
 export default function MiyingTVApp() {
-  const [tipText, setTipText] = useState(tips[0]);
-
-  useEffect(() => {
-    // 每次打开面板随机选取文案
-    const randomTip = tips[Math.floor(Math.random() * tips.length)];
-    setTipText(randomTip);
-  }, []);
-
-  const moduleList = [
-    { id: "recommend", label: "推荐影片", icon: <Film size={22}/>, color: "#4f7cff" },
-    { id: "live-chat", label: "实时聊房", icon: <MessageSquare size={22}/>, color: "#9d4edd" },
-    { id: "rank", label: "人气榜单", icon: <TrendingUp size={22}/>, color: "#ff5ca8" },
-    { id: "reservation", label: "我的预约", icon: <Calendar size={22}/>, color: "#22d3ee" },
-    { id: "danmaku", label: "弹幕设置", icon: <Terminal size={22}/>, color: "#a78bfa" },
-    { id: "more", label: "更多", icon: <ChevronRight size={22}/>, color: "#9ca3af" },
-  ];
-
+  const [tip] = useState(() => tips[Math.floor(Math.random() * tips.length)]);
   return (
-    <div className="w-full min-h-[480px] rounded-2xl p-6 relative overflow-hidden"
-      style={{
-        background: "linear-gradient(145deg, rgba(30,20,60,0.4), rgba(10,10,18,0.9))",
-        border: "1px solid rgba(157, 78, 221, 0.35)",
-        boxShadow: "0 10px 40px rgba(79, 124, 255, 0.25)",
-        backdropFilter: "blur(18px)"
-      }}
-    >
-      {/* 顶部标题 */}
-      <div className="flex items-center gap-3 mb-8">
-        <Tv size={28} style={{color:"#9d4edd"}}/>
-        <h2 className="text-2xl font-bold text-white">迷影・TV</h2>
-      </div>
-
-      {/* 中央脉冲播放核心 */}
-      <div className="flex justify-center mb-8">
-        <div className="w-32 h-32 rounded-full flex items-center justify-center"
-          style={{
-            background: "radial-gradient(circle, rgba(79,124,255,0.35), rgba(157,78,221,0.15) 60%, transparent 70%)",
-            animation: "pulse 2.4s ease-in-out infinite"
-          }}
-        >
-          <Film size={40} color="#e8e8ff"/>
-        </div>
-      </div>
-
-      {/* 功能卡片网格 */}
-      <div className="grid grid-cols-3 gap-3 mb-8">
-        {moduleList.map(item => (
-          <div key={item.id}
-            className="rounded-xl p-3 cursor-pointer transition-all duration-250 hover:-translate-y-1"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)"
-            }}
-            onMouseEnter={(e)=>{
-              e.currentTarget.style.borderColor = item.color;
-              e.currentTarget.style.boxShadow = `0 8px 24px ${item.color}25`;
-            }}
-            onMouseLeave={(e)=>{
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <div className="flex flex-col items-center gap-2">
-              <span style={{color: item.color}}>{item.icon}</span>
-              <span className="text-sm text-gray-200">{item.label}</span>
+    <div className="flex flex-col h-full">
+      {/* 迷影TV主卡片 蓝紫科技渐变 */}
+      <div className="relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-500 text-white flex-1 flex flex-col justify-between min-h-[180px]">
+        {/* 装饰光晕 */}
+        <div className="pointer-events-none absolute -top-10 -right-8 w-36 h-36 rounded-full bg-white/25 blur-2xl" />
+        <div className="pointer-events-none absolute -bottom-12 -left-6 w-28 h-28 rounded-full bg-fuchsia-300/40 blur-xl" />
+        <div className="relative">
+          <div className="flex items-center gap-2.5">
+            <div className="w-10 h-10 rounded-xl bg-white/25 backdrop-blur flex items-center justify-center text-xl font-black shadow-lg">
+              🎬
+            </div>
+            <div>
+              <div className="text-lg font-black leading-tight tracking-wide">迷影・TV</div>
+              <div className="text-[11px] text-white/80">MIYING TV STATION</div>
             </div>
           </div>
-        ))}
+          <p className="mt-4 text-[13px] leading-relaxed text-white/90">
+            影视交互控制台：影片推荐、实时聊房、片单预约一站式观影空间。
+          </p>
+        </div>
+        <div className="relative mt-5 grid grid-cols-2 gap-2">
+          <a
+            href={MIYING_TV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-xl px-3 py-2.5 text-center transition-all duration-200 active:scale-95 bg-white text-violet-600 font-bold shadow-lg hover:shadow-xl"
+          >
+            <div className="text-[13px] flex items-center justify-center gap-1">
+              立即进入
+              <svg
+                className="w-3 h-3 opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path d="M7 17L17 7M7 7h10v10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="text-[10px] opacity-70 mt-0.5">私人影视空间</div>
+          </a>
+          <a
+            href="/"
+            className="group rounded-xl px-3 py-2.5 text-center transition-all duration-200 active:scale-95 bg-white/15 hover:bg-white/25 backdrop-blur text-white font-semibold"
+          >
+            <div className="text-[13px]">我的片单</div>
+            <div className="text-[10px] opacity-70 mt-0.5">迷影收藏夹</div>
+          </a>
+        </div>
       </div>
-
-      {/* 操作按钮行 */}
-      <div className="flex gap-4 mb-6">
-        <button
-          onClick={() => window.open(MIYING_TV_URL, "_blank")}
-          className="flex-1 py-3 rounded-xl font-semibold"
-          style={{
-            background: "linear-gradient(135deg, #e0a3b2, #f4d3c7, #b5838d)",
-            color: "#2a1f22"
-          }}
-        >
-          立即进入
-        </button>
-        <button
-          onClick={() => window.location.href = HOME_URL}
-          className="flex-1 py-3 rounded-xl font-semibold"
-          style={{
-            background: "linear-gradient(135deg, rgba(79, 124, 255, 0.15), rgba(157, 78, 221, 0.25))",
-            border: "1px solid rgba(157, 78, 221, 0.45)",
-            color: "#e8e8ff"
-          }}
-        >
-          我的片单
-        </button>
+      {/* 底部随机文案卡片 */}
+      <div className="mt-3 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-dashed border-violet-300/60 dark:border-violet-500/30">
+        <span className="text-sm shrink-0">🎞️</span>
+        <div>
+          <div className="text-[10px] font-bold text-violet-500 dark:text-violet-400">影厅提示</div>
+          <div className="text-xs text-slate-600 dark:text-slate-300">{tip}</div>
+        </div>
       </div>
-
-      {/* 底部随机提示文案 */}
-      <div className="text-center text-sm text-purple-200 opacity-80">
-        {tipText}
-      </div>
-
-      {/* 全局动画样式内联 */}
-      <style>{`
-        @keyframes pulse {
-          0%,100% { opacity:0.85; transform:scale(1); }
-          50% { opacity:1; transform:scale(1.04); }
-        }
-      `}</style>
     </div>
   );
 }
