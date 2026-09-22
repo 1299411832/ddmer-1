@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Film, MessageSquare, TrendingUp, Calendar, Terminal, ChevronRight, Tv } from 'lucide-react';
 
 // 跳转地址，按需修改
-const MIYING_TV_URL = "https://ficp.fun/miying";
+const MIYING_TV_URL = "https://tv.miti.cc.cd";
 const HOME_URL = "/";
 
 // 底部随机趣味文案
