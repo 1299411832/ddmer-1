@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+const DiscountApp = lazy(() => import("./toolbox/MiyingTVApp"));
 const DiscountApp = lazy(() => import("./toolbox/DiscountApp"));
 const CalendarApp = lazy(() => import("./toolbox/CalendarApp"));
 const CalculatorApp = lazy(() => import("./toolbox/CalculatorApp"));
@@ -142,6 +143,19 @@ const allApps: AppDef[] = [
   ),
   component: DiscountApp,
 },
+ {
+  id: "miying-tv",
+  name: "迷影・TV",
+  icon: (
+    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
+      <path d="M21 7H3C2.44772 7 2 7.44772 2 8V16C2 16.5523 2.44772 17 3 17H21C21.5523 17 22 16.5523 22 16V8C22 7.44772 21.5523 7 21 7Z" stroke="#9d4edd" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M9 2.5L12 5L15 2.5" stroke="#4f7cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 11V14M14 12.5L10 12.5" stroke="#e8e8ff" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  ),
+  component: MiyingTVApp,
+},
+
   {
     id: "weather",
     name: "迷体天气",
