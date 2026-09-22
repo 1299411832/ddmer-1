@@ -19,7 +19,6 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 
 const MiyingTVApp = lazy(() => import("./toolbox/MiyingTVApp"));
-const DiscountApp = lazy(() => import("./toolbox/DiscountApp"));
 const CalendarApp = lazy(() => import("./toolbox/CalendarApp"));
 const CalculatorApp = lazy(() => import("./toolbox/CalculatorApp"));
 const ClockApp = lazy(() => import("./toolbox/ClockApp"));
