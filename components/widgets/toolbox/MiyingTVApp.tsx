@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const MIYING_TV_URL = "https://miti1.cc.cd";
+const MIYING_TV_URL = "https://tv.miti.cc.cd";
 const HOME_URL = "/";
 
 const tips = [
