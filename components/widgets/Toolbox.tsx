@@ -969,7 +969,7 @@ export default function Toolbox() {
           style={{ touchAction: "none" }}
         >
           <img
-            src="/x.gif"
+            src="/160x160 logo.png"
             alt="工具箱"
             draggable={false}
             className="w-full h-full object-contain select-none pointer-events-none"
