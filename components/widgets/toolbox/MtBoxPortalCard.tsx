@@ -99,7 +99,7 @@ export default function MtBoxPortalCard() {
         }}
       />
 
-      {/* 中心标题区域，和迷影TV保持一致 */}
+      {/* 顶部标题区 */}
       <div className="relative z-20 text-center mb-6 md:mb-10">
         <h2
           className="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider"
@@ -120,7 +120,7 @@ export default function MtBoxPortalCard() {
         </p>
       </div>
 
-      {/* 3D卡片容器，响应式网格：手机1列，平板2列，桌面3列，和迷影TV完全相同 */}
+      {/* 居中卡片网格 */}
       <div
         className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-4xl mx-auto"
         style={{
@@ -134,7 +134,7 @@ export default function MtBoxPortalCard() {
         ))}
       </div>
 
-      {/* 主跳转按钮，位置样式对齐迷影TV */}
+      {/* 底部主按钮 */}
       <div className="relative z-20 mt-6 md:mt-10 text-center pb-2">
         <a
           href={MT_BOX_URL}
@@ -150,7 +150,7 @@ export default function MtBoxPortalCard() {
         </a>
       </div>
 
-      {/* 流光动画 */}
+      {/* 卡片流光动画 */}
       <style>{`
         @keyframes shine {
           0%   { transform: translateX(-100%) skewX(-20deg); }
@@ -205,8 +205,12 @@ function PortalItemCard({
         className="absolute -top-8 -right-8 w-16 h-16 rounded-full opacity-30 blur-xl"
         style={{ background: card.color }}
       />
-      <h3 className="text-base md:text-lg font-semibold text-white">{card.title}</h3>
-      <p className="text-sm text-slate-300 opacity-60 mt-1">{card.subTitle}</p>
+      <h3 className="text-base md:text-lg font-semibold text-white">
+        {card.title}
+      </h3>
+      <p className="text-sm text-slate-300 opacity-60 mt-1">
+        {card.subTitle}
+      </p>
     </div>
   );
 }
